@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#1F3A5F" stroke="#D4AF37" stroke-width="2"/>
+  
+  <!-- Inner circle -->
+  <circle cx="100" cy="100" r="85" fill="#2B5A8F"/>
+  
+  <!-- RM initials -->
+  <text x="100" y="115" font-family="Inter, sans-serif" font-size="72" font-weight="700" fill="#D4AF37" text-anchor="middle" letter-spacing="-2">RM</text>
+  
+  <!-- Accent line -->
+  <line x1="60" y1="135" x2="140" y2="135" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Small text -->
+  <text x="100" y="155" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#D4AF37" text-anchor="middle">PARTNERS</text>
+</svg>
