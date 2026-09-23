@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CircleCheckBig, Lock, Target, TrendingUp, Zap } from "lucide-react";
 import { Link } from "wouter";
-
 export function President() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -189,17 +188,15 @@ export function President() {
                 </div>
                 <div className="mt-10">
                   <Link href="/contact">
-                    <a>
-                      <Button
-                        className="rounded-full px-8 py-6 text-white shadow-lg hover:shadow-xl transition-shadow"
-                        style={{
-                          background: "#173B63",
-                        }}
-                      >
-                        Parlons de votre projet
-                        <ArrowRight className="w-4 h-4 ml-2 inline-block" />
-                      </Button>
-                    </a>
+                    <Button
+                      className="rounded-full px-8 py-6 text-white shadow-lg hover:shadow-xl transition-shadow"
+                      style={{
+                        background: "#173B63",
+                      }}
+                    >
+                      Parlons de votre projet
+                      <ArrowRight className="w-4 h-4 ml-2 inline-block" />
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -598,11 +595,9 @@ export function President() {
               comptes.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -611,5 +606,4 @@ export function President() {
     </div>
   );
 }
-
 export default President;

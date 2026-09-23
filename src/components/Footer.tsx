@@ -1,10 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "wouter";
-
 const SITE_NAME = "RM Partners";
-
 const lo = "/logo.png";
-
 export function Footer() {
   return (
     new Date().getFullYear(),
@@ -57,28 +54,34 @@ export function Footer() {
               </h3>
               <ul className="space-y-2.5 text-sm text-white/75">
                 <li>
-                  <Link href="/services/comptabilite">
-                    <a className="hover:text-accent transition-colors">Comptabilité</a>
+                  <Link
+                    href="/services/comptabilite"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Comptabilité
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/fiscalite">
-                    <a className="hover:text-accent transition-colors">Fiscalité</a>
+                  <Link href="/services/fiscalite" className="hover:text-accent transition-colors">
+                    Fiscalité
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/paie">
-                    <a className="hover:text-accent transition-colors">Paie & Social</a>
+                  <Link href="/services/paie" className="hover:text-accent transition-colors">
+                    Paie & Social
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/audit">
-                    <a className="hover:text-accent transition-colors">Audit & Commissariat</a>
+                  <Link href="/services/audit" className="hover:text-accent transition-colors">
+                    Audit & Commissariat
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/controle-fiscal">
-                    <a className="hover:text-accent transition-colors">Contrôle Fiscal</a>
+                  <Link
+                    href="/services/controle-fiscal"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Contrôle Fiscal
                   </Link>
                 </li>
               </ul>
@@ -94,18 +97,18 @@ export function Footer() {
               </h3>
               <ul className="space-y-2.5 text-sm text-white/75">
                 <li>
-                  <Link href="/about">
-                    <a className="hover:text-accent transition-colors">À propos</a>
+                  <Link href="/about" className="hover:text-accent transition-colors">
+                    À propos
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog">
-                    <a className="hover:text-accent transition-colors">Actualités</a>
+                  <Link href="/blog" className="hover:text-accent transition-colors">
+                    Actualités
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact">
-                    <a className="hover:text-accent transition-colors">Contact</a>
+                  <Link href="/contact" className="hover:text-accent transition-colors">
+                    Contact
                   </Link>
                 </li>
               </ul>
@@ -187,5 +190,4 @@ export function Footer() {
     )
   );
 }
-
 export default Footer;

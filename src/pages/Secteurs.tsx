@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Briefcase, ChartPie, CircleCheckBig, TrendingUp, Users } from "lucide-react";
 import { Link } from "wouter";
-
 export function Secteurs() {
   const n = [
     {
@@ -156,13 +155,13 @@ export function Secteurs() {
             <h2 className="text-4xl font-bold mb-16 text-center">Nos secteurs de spécialisation</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {n.map((i, l) => {
-                const o = i.icon;
+                const Icon = i.icon;
                 return (
-                  <Card className="flex flex-col">
+                  <Card key={l} className="flex flex-col">
                     <CardContent className="pt-6 flex flex-col flex-1">
                       <div className="flex items-start gap-4 mb-6">
                         <div className="rm-icon-badge bg-gradient-to-br from-accent to-[#e0b563] text-white rounded-full w-14 h-14 flex items-center justify-center flex-shrink-0 shadow-md transition-transform duration-300 hover:scale-110">
-                          <o className="w-6 h-6" />
+                          <Icon className="w-6 h-6" />
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-heading">{i.name}</h3>
@@ -173,7 +172,10 @@ export function Secteurs() {
                         <h4 className="font-bold mb-3 text-heading">Services proposés</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {i.services.map((u, p) => (
-                            <div className="flex items-center gap-2 text-sm text-foreground">
+                            <div
+                              key={p}
+                              className="flex items-center gap-2 text-sm text-foreground"
+                            >
                               <CircleCheckBig className="w-4 h-4 text-accent flex-shrink-0" />
                               <span className="text-foreground">{u}</span>
                             </div>
@@ -184,7 +186,7 @@ export function Secteurs() {
                         <h4 className="font-bold mb-3 text-heading">Avantages</h4>
                         <ul className="space-y-2">
                           {i.benefits.map((u, p) => (
-                            <li className="flex items-center gap-2 text-sm text-foreground">
+                            <li key={p} className="flex items-center gap-2 text-sm text-foreground">
                               <span className="text-accent font-bold">•</span>
                               <span className="text-foreground">{u}</span>
                             </li>
@@ -193,12 +195,10 @@ export function Secteurs() {
                       </div>
                       <div className="pt-6">
                         <Link href="/contact">
-                          <a>
-                            <Button className="w-full bg-accent text-white hover:bg-accent/90 gap-2">
-                              En savoir plus
-                              <ArrowRight className="w-4 h-4" />
-                            </Button>
-                          </a>
+                          <Button className="w-full bg-accent text-white hover:bg-accent/90 gap-2">
+                            En savoir plus
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
                         </Link>
                       </div>
                     </CardContent>
@@ -293,11 +293,9 @@ export function Secteurs() {
               pouvons vous aider.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -306,5 +304,4 @@ export function Secteurs() {
     </div>
   );
 }
-
 export default Secteurs;

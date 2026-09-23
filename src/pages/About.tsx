@@ -3,7 +3,6 @@ import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { ArrowUpRight, Award, Lightbulb, Target, Users } from "lucide-react";
 import { Link } from "wouter";
-
 export function About() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -58,13 +57,11 @@ export function About() {
                   travers les défis comptables, fiscaux et sociaux, en mettant l'humain et la
                   performance au cœur de notre action.
                 </p>
-                <Link href="/contact">
-                  <a className="rm-arrow-cta">
-                    Commençons ensemble
-                    <span className="rm-arrow-circle">
-                      <ArrowUpRight className="w-4 h-4 text-white" />
-                    </span>
-                  </a>
+                <Link href="/contact" className="rm-arrow-cta">
+                  Commençons ensemble
+                  <span className="rm-arrow-circle">
+                    <ArrowUpRight className="w-4 h-4 text-white" />
+                  </span>
                 </Link>
               </div>
               <div className="rm-fade-up rm-fade-up-d2 bg-secondary p-8 rounded-[22px]">
@@ -207,13 +204,11 @@ export function About() {
             <p className="text-lg text-white/85 mb-10 max-w-xl mx-auto">
               Contactez-nous pour une première consultation gratuite et sans engagement.
             </p>
-            <Link href="/contact">
-              <a className="rm-arrow-cta inline-flex">
-                Nous contacter
-                <span className="rm-arrow-circle">
-                  <ArrowUpRight className="w-4 h-4 text-white" />
-                </span>
-              </a>
+            <Link href="/contact" className="rm-arrow-cta inline-flex">
+              Nous contacter
+              <span className="rm-arrow-circle">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </span>
             </Link>
           </div>
         </section>
@@ -222,5 +217,4 @@ export function About() {
     </div>
   );
 }
-
 export default About;

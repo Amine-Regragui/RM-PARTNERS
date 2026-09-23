@@ -4,20 +4,6 @@ import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Award, Mail, Phone } from "lucide-react";
 import { Link } from "wouter";
-
-function ex(n) {
-  var i,
-    l,
-    o = "";
-  if (typeof n == "string" || typeof n == "number") o += n;
-  else if (typeof n == "object")
-    if (Array.isArray(n)) {
-      var u = n.length;
-      for (i = 0; i < u; i++) n[i] && (l = ex(n[i])) && (o && (o += " "), (o += l));
-    } else for (l in n) n[l] && (o && (o += " "), (o += l));
-  return o;
-}
-
 export function Equipe() {
   const n = [
       {
@@ -115,7 +101,7 @@ export function Equipe() {
       },
     ],
     [ex, setEx] = useState(Array(4).fill(!1)),
-    d = (T) => setEx((P) => P.map((V, K) => (K === T ? !V : V)));
+    d = (index: number) => setEx((prev) => prev.map((open, i) => (i === index ? !open : open)));
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -202,7 +188,10 @@ export function Equipe() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
               {n.map((i, l) => (
-                <div className="rm-reveal rm-card rounded-2xl overflow-hidden bg-white flex flex-col h-full border-t-4 border-accent">
+                <div
+                  key={l}
+                  className="rm-reveal rm-card rounded-2xl overflow-hidden bg-white flex flex-col h-full border-t-4 border-accent"
+                >
                   <div className="p-8 md:p-10 flex flex-col flex-1">
                     <h3 className="text-2xl font-bold text-heading mb-1">{i.name}</h3>
                     <p className="text-accent font-semibold mb-1">{i.title}</p>
@@ -212,7 +201,10 @@ export function Equipe() {
                     <p className="text-sm text-foreground/85 leading-relaxed mb-5">{i.bio}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {i.specialties.map((o, u) => (
-                        <span className="bg-accent/15 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                        <span
+                          key={u}
+                          className="bg-accent/15 text-accent px-3 py-1 rounded-full text-xs font-medium"
+                        >
                           {o}
                         </span>
                       ))}
@@ -229,7 +221,7 @@ export function Equipe() {
                           <h4 className="text-sm font-bold mb-2 text-heading">Formation</h4>
                           <ul className="space-y-1 text-xs text-foreground">
                             {i.education.map((o, u) => (
-                              <li className="flex items-start gap-2">
+                              <li key={u} className="flex items-start gap-2">
                                 <span className="text-accent font-bold mt-0.5">•</span>
                                 <span>{o}</span>
                               </li>
@@ -241,7 +233,7 @@ export function Equipe() {
                             <h4 className="text-sm font-bold mb-2 text-heading">Expérience</h4>
                             <ul className="space-y-1 text-xs text-foreground">
                               {i.experience.map((o, u) => (
-                                <li className="flex items-start gap-2">
+                                <li key={u} className="flex items-start gap-2">
                                   <span className="text-accent font-bold mt-0.5">•</span>
                                   <span>{o}</span>
                                 </li>
@@ -330,11 +322,9 @@ export function Equipe() {
               Contactez-nous pour discuter de vos projets avec nos experts.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -343,5 +333,4 @@ export function Equipe() {
     </div>
   );
 }
-
 export default Equipe;

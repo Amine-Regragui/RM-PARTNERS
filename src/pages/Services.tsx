@@ -13,7 +13,6 @@ import {
   Zap,
 } from "lucide-react";
 import { Link } from "wouter";
-
 export function Services() {
   const n = [
     {
@@ -141,7 +140,7 @@ export function Services() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {n.map((i, l) => (
-                <ServiceCard {...i} />
+                <ServiceCard key={l} {...i} />
               ))}
             </div>
           </div>
@@ -428,29 +427,28 @@ export function Services() {
               </div>
             </div>
             <div className="text-center mt-12">
-              <Link href="/contact">
-                <a
-                  className="rm-arrow-cta"
+              <Link
+                href="/contact"
+                className="rm-arrow-cta"
+                style={{
+                  background: "#0b2340",
+                  color: "#c9a84c",
+                }}
+              >
+                Découvrir nos solutions digitales
+                <span
+                  className="rm-arrow-circle"
                   style={{
-                    background: "#0b2340",
-                    color: "#c9a84c",
+                    background: "#c9a84c",
                   }}
                 >
-                  Découvrir nos solutions digitales
-                  <span
-                    className="rm-arrow-circle"
+                  <ArrowUpRight
+                    className="w-4 h-4"
                     style={{
-                      background: "#c9a84c",
+                      color: "#0b2340",
                     }}
-                  >
-                    <ArrowUpRight
-                      className="w-4 h-4"
-                      style={{
-                        color: "#0b2340",
-                      }}
-                    />
-                  </span>
-                </a>
+                  />
+                </span>
               </Link>
             </div>
           </div>
@@ -522,13 +520,11 @@ export function Services() {
               Contactez-nous pour discuter de vos besoins spécifiques et trouver la solution
               adaptée.
             </p>
-            <Link href="/contact">
-              <a className="rm-arrow-cta inline-flex">
-                Nous contacter
-                <span className="rm-arrow-circle">
-                  <ArrowUpRight className="w-4 h-4 text-white" />
-                </span>
-              </a>
+            <Link href="/contact" className="rm-arrow-cta inline-flex">
+              Nous contacter
+              <span className="rm-arrow-circle">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </span>
             </Link>
           </div>
         </section>
@@ -537,5 +533,4 @@ export function Services() {
     </div>
   );
 }
-
 export default Services;

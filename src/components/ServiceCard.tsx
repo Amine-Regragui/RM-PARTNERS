@@ -1,8 +1,20 @@
+import type { ReactNode } from "react";
+
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 
-export function ServiceCard({ icon: n, title: i, description: l, href: o, features: u }) {
+export interface ServiceCardProps {
+  /** Icône déjà rendue (ex. <Calculator />), stylée par le conteneur. */
+  icon: ReactNode;
+  title: string;
+  description: string;
+  /** Lien interne vers la page du service. */
+  href: string;
+  features?: string[];
+}
+
+export function ServiceCard({ icon, title, description, href, features }: ServiceCardProps) {
   return (
     <Card className="rm-card h-full rounded-none">
       <CardHeader>
@@ -13,28 +25,30 @@ export function ServiceCard({ icon: n, title: i, description: l, href: o, featur
               strokeWidth: 1.5,
             }}
           >
-            {n}
+            {icon}
           </div>
         </div>
-        <h3 className="text-lg font-bold mb-1.5">{i}</h3>
-        <p className="text-sm text-foreground/70 leading-relaxed">{l}</p>
+        <h3 className="text-lg font-bold mb-1.5">{title}</h3>
+        <p className="text-sm text-foreground/70 leading-relaxed">{description}</p>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        {u && (
+        {features && (
           <ul className="space-y-2 text-sm text-foreground/70">
-            {u.map((p, m) => (
-              <li className="flex items-start gap-2">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-start gap-2">
                 <span className="text-accent font-bold mt-1">•</span>
-                <span>{p}</span>
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
         )}
-        <Link href={o}>
-          <a className="inline-flex items-center gap-2 text-sm font-semibold text-heading border border-heading/25 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 mt-1">
-            En savoir plus
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+        {/* wouter v3 rend lui-même la balise <a> : pas de <a> imbriqué. */}
+        <Link
+          href={href}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-heading border border-heading/25 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 mt-1"
+        >
+          En savoir plus
+          <ArrowUpRight className="w-3.5 h-3.5" />
         </Link>
       </CardContent>
     </Card>

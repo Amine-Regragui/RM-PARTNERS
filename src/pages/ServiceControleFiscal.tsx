@@ -11,7 +11,6 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { Link } from "wouter";
-
 export function ServiceControleFiscal() {
   const n = {
     "@context": "https://schema.org",
@@ -204,11 +203,9 @@ export function ServiceControleFiscal() {
                 </div>
                 <div className="flex-shrink-0">
                   <Link href="/contact">
-                    <a>
-                      <Button className="bg-accent text-white hover:bg-accent/90 px-10 py-8 text-xl font-bold">
-                        Prendre rendez-vous
-                      </Button>
-                    </a>
+                    <Button className="bg-accent text-white hover:bg-accent/90 px-10 py-8 text-xl font-bold">
+                      Prendre rendez-vous
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -220,5 +217,4 @@ export function ServiceControleFiscal() {
     </div>
   );
 }
-
 export default ServiceControleFiscal;

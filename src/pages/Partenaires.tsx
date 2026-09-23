@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CircleCheckBig } from "lucide-react";
 import { Link } from "wouter";
-
 export function Partenaires() {
   const n = [
     {
@@ -93,7 +92,7 @@ export function Partenaires() {
             <h2 className="text-4xl font-bold mb-16 text-center">Nos partenaires clés</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {n.map((i, l) => (
-                <Card>
+                <Card key={l}>
                   <CardContent className="pt-6">
                     <div className="mb-4">
                       <span className="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">
@@ -106,7 +105,7 @@ export function Partenaires() {
                       <h4 className="font-bold mb-3">Spécialités</h4>
                       <ul className="space-y-2">
                         {i.features.map((o, u) => (
-                          <li className="flex items-center gap-2 text-foreground text-sm">
+                          <li key={u} className="flex items-center gap-2 text-foreground text-sm">
                             <CircleCheckBig className="w-4 h-4 text-accent flex-shrink-0" />
                             {o}
                           </li>
@@ -204,11 +203,9 @@ export function Partenaires() {
               vos objectifs.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -217,5 +214,4 @@ export function Partenaires() {
     </div>
   );
 }
-
 export default Partenaires;

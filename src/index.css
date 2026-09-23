@@ -61,4 +61,52 @@
   }
 }
 
+
+/* ------------------------------------------------------------------
+   Noms de variables d'origine (--accent, --heading, …).
+
+   Tailwind v4 expose les jetons ci-dessus sous la forme --color-*, mais le
+   CSS repris du site d'origine (components.css, motion.css) référence les
+   noms courts. Sans ce bloc, var(--accent) est introuvable et les boutons
+   dorés s'affichent sans fond.
+------------------------------------------------------------------- */
+:root {
+  --primary: #14355c;
+  --primary-foreground: #fff;
+  --sidebar-primary: #14355c;
+  --sidebar-primary-foreground: #fff;
+  --chart-1: #2c6ca6;
+  --chart-2: #14355c;
+  --chart-3: #0b2340;
+  --chart-4: #c89b3c;
+  --chart-5: #d4a84e;
+  --radius: .25rem;
+  --background: #fff;
+  --foreground: #3a3f47;
+  --heading: #14355c;
+  --steel: #2c6ca6;
+  --card: #fff;
+  --card-foreground: #3a3f47;
+  --popover: #fff;
+  --popover-foreground: #3a3f47;
+  --secondary: #f4f5f7;
+  --secondary-foreground: #14355c;
+  --muted: #f0f1f3;
+  --muted-foreground: #6b7078;
+  --accent: #c89b3c;
+  --accent-foreground: #fff;
+  --destructive: #14355c;
+  --destructive-foreground: #fff;
+  --border: #e3e5e8;
+  --input: #f4f5f7;
+  --ring: #c89b3c;
+  --sidebar: #fff;
+  --sidebar-foreground: #3a3f47;
+  --sidebar-accent: #c89b3c;
+  --sidebar-accent-foreground: #fff;
+  --sidebar-border: #e3e5e8;
+  --sidebar-ring: #c89b3c;
+}
+
+@import "./styles/components.css";
 @import "./styles/motion.css";

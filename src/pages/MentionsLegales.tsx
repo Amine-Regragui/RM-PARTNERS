@@ -14,7 +14,6 @@ import { SEO } from "@/components/SEO";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 import { Link } from "wouter";
-
 interface ARenseignerProps {
   children: ReactNode;
 }
@@ -23,14 +22,12 @@ interface ARenseignerProps {
 function ARenseigner({ children }: ARenseignerProps) {
   return <span className="font-semibold text-red-700">[À COMPLÉTER : {children}]</span>;
 }
-
 interface LegalSectionProps {
   title: string;
   /** Alterne le fond des sections, comme sur les autres pages du site. */
   tone?: "light" | "muted";
   children: ReactNode;
 }
-
 function LegalSection({ title, tone = "light", children }: LegalSectionProps) {
   return (
     <section
@@ -48,7 +45,6 @@ function LegalSection({ title, tone = "light", children }: LegalSectionProps) {
     </section>
   );
 }
-
 export function MentionsLegales() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -122,8 +118,9 @@ export function MentionsLegales() {
         <LegalSection title="2. Directeur de la publication" tone="muted">
           <p>
             Le directeur de la publication du site est{" "}
-            <ARenseigner>nom, prénom et qualité du directeur de la publication</ARenseigner>, joignable
-            à l'adresse <ARenseigner>adresse de courriel du directeur de la publication</ARenseigner>.
+            <ARenseigner>nom, prénom et qualité du directeur de la publication</ARenseigner>,
+            joignable à l'adresse{" "}
+            <ARenseigner>adresse de courriel du directeur de la publication</ARenseigner>.
           </p>
         </LegalSection>
 
@@ -141,8 +138,9 @@ export function MentionsLegales() {
 
         <LegalSection title="4. Professions réglementées" tone="muted">
           <p>
-            L'activité d'expertise comptable est réglementée par l'ordonnance du 19 septembre 1945 et
-            soumise au respect du Code de déontologie des professionnels de l'expertise comptable.
+            L'activité d'expertise comptable est réglementée par l'ordonnance du 19 septembre 1945
+            et soumise au respect du Code de déontologie des professionnels de l'expertise
+            comptable.
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
@@ -162,7 +160,8 @@ export function MentionsLegales() {
               <ARenseigner>autorité compétente (H2A / Conseil national de l'Ordre)</ARenseigner>
             </li>
             <li>
-              Titre professionnel obtenu en : <ARenseigner>État membre de délivrance du titre</ARenseigner>
+              Titre professionnel obtenu en :{" "}
+              <ARenseigner>État membre de délivrance du titre</ARenseigner>
             </li>
           </ul>
         </LegalSection>
@@ -170,11 +169,13 @@ export function MentionsLegales() {
         <LegalSection title="5. Assurance responsabilité civile professionnelle">
           <p>
             Le cabinet est couvert par une assurance de responsabilité civile professionnelle
-            souscrite auprès de <ARenseigner>nom et adresse de la compagnie d'assurance</ARenseigner>,
-            police n° <ARenseigner>numéro de police</ARenseigner>.
+            souscrite auprès de{" "}
+            <ARenseigner>nom et adresse de la compagnie d'assurance</ARenseigner>, police n°{" "}
+            <ARenseigner>numéro de police</ARenseigner>.
           </p>
           <p>
-            Couverture géographique : <ARenseigner>étendue territoriale de la garantie</ARenseigner>.
+            Couverture géographique : <ARenseigner>étendue territoriale de la garantie</ARenseigner>
+            .
           </p>
         </LegalSection>
 
@@ -194,8 +195,9 @@ export function MentionsLegales() {
         <LegalSection title="7. Propriété intellectuelle">
           <p>
             L'ensemble des éléments composant le site — structure, textes, identité visuelle,
-            logotypes, photographies, illustrations et documents téléchargeables — est protégé par le
-            droit de la propriété intellectuelle et demeure la propriété de leur titulaire respectif.
+            logotypes, photographies, illustrations et documents téléchargeables — est protégé par
+            le droit de la propriété intellectuelle et demeure la propriété de leur titulaire
+            respectif.
           </p>
           <p>
             Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, par
@@ -216,40 +218,44 @@ export function MentionsLegales() {
             saurait être recherchée à ce titre.
           </p>
           <p>
-            La création d'un lien vers rmpartners.fr est libre, sous réserve de ne pas porter atteinte
-            à l'image du cabinet et de ne pas mettre la page en situation d'être confondue avec un
-            site tiers.
+            La création d'un lien vers rmpartners.fr est libre, sous réserve de ne pas porter
+            atteinte à l'image du cabinet et de ne pas mettre la page en situation d'être confondue
+            avec un site tiers.
           </p>
         </LegalSection>
 
         <LegalSection title="9. Données personnelles et cookies">
           <p>
-            Les traitements de données à caractère personnel réalisés depuis ce site, notamment via le
-            formulaire de contact, sont décrits dans notre{" "}
-            <Link href="/confidentialite">
-              <a className="font-semibold text-primary hover:text-accent transition-colors">
-                politique de confidentialité
-              </a>
+            Les traitements de données à caractère personnel réalisés depuis ce site, notamment via
+            le formulaire de contact, sont décrits dans notre{" "}
+            <Link
+              href="/confidentialite"
+              className="font-semibold text-primary hover:text-accent transition-colors"
+            >
+              politique de confidentialité
             </Link>
             .
           </p>
           <p>
-            Le secret professionnel auquel sont tenus l'expert-comptable et le commissaire aux comptes
-            s'applique à l'ensemble des informations recueillies dans le cadre de la mission.
+            Le secret professionnel auquel sont tenus l'expert-comptable et le commissaire aux
+            comptes s'applique à l'ensemble des informations recueillies dans le cadre de la
+            mission.
           </p>
         </LegalSection>
 
         <LegalSection title="10. Droit applicable" tone="muted">
           <p>
             Les présentes mentions légales sont régies par le droit français. En cas de litige et à
-            défaut de résolution amiable, compétence est attribuée aux tribunaux français compétents.
+            défaut de résolution amiable, compétence est attribuée aux tribunaux français
+            compétents.
           </p>
           <p>
             Pour toute question relative à ces mentions, vous pouvez nous écrire via la{" "}
-            <Link href="/contact">
-              <a className="font-semibold text-primary hover:text-accent transition-colors">
-                page contact
-              </a>
+            <Link
+              href="/contact"
+              className="font-semibold text-primary hover:text-accent transition-colors"
+            >
+              page contact
             </Link>
             .
           </p>
@@ -259,5 +265,4 @@ export function MentionsLegales() {
     </div>
   );
 }
-
 export default MentionsLegales;

@@ -4,7 +4,6 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User } from "lucide-react";
 import { Link, useRoute } from "wouter";
-
 export function BlogArticle() {
   const [n, i] = useRoute("/blog/:slug"),
     l = {
@@ -381,7 +380,7 @@ export function BlogArticle() {
       },
     };
   if (!n) return null;
-  const o = l[i?.slug];
+  const o = i?.slug ? l[i.slug as keyof typeof l] : undefined;
   return o ? (
     <div className="min-h-screen flex flex-col">
       <SEO title={o.title} description={o.title} />
@@ -412,11 +411,12 @@ export function BlogArticle() {
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">{o.title}</h1>
-              <Link href="/blog">
-                <a className="inline-flex items-center gap-2 text-white hover:text-accent transition-colors">
-                  <ArrowLeft className="w-4 h-4" />
-                  Retour aux actualités
-                </a>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-white hover:text-accent transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Retour aux actualités
               </Link>
             </div>
           </div>
@@ -437,11 +437,9 @@ export function BlogArticle() {
                 Nos experts peuvent vous accompagner dans la mise en place de ces solutions.
               </p>
               <Link href="/contact">
-                <a>
-                  <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6">
-                    Nous contacter
-                  </Button>
-                </a>
+                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6">
+                  Nous contacter
+                </Button>
               </Link>
             </div>
           </div>
@@ -450,19 +448,18 @@ export function BlogArticle() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center">Articles connexes</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Link href="/blog">
-                <a className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-heading">Retour aux actualités</h3>
-                    <p className="text-foreground text-sm mb-4">
-                      Découvrez tous nos articles sur la comptabilité, la fiscalité et la gestion
-                      d'entreprise.
-                    </p>
-                    <span className="text-accent text-sm font-semibold">
-                      Voir tous les articles
-                    </span>
-                  </div>
-                </a>
+              <Link
+                href="/blog"
+                className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-heading">Retour aux actualités</h3>
+                  <p className="text-foreground text-sm mb-4">
+                    Découvrez tous nos articles sur la comptabilité, la fiscalité et la gestion
+                    d'entreprise.
+                  </p>
+                  <span className="text-accent text-sm font-semibold">Voir tous les articles</span>
+                </div>
               </Link>
             </div>
           </div>
@@ -477,9 +474,7 @@ export function BlogArticle() {
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Article non trouvé</h1>
           <Link href="/blog">
-            <a>
-              <Button className="bg-primary text-white">Retour au blog</Button>
-            </a>
+            <Button className="bg-primary text-white">Retour au blog</Button>
           </Link>
         </div>
       </main>
@@ -487,5 +482,4 @@ export function BlogArticle() {
     </div>
   );
 }
-
 export default BlogArticle;

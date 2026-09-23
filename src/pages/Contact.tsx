@@ -1,3 +1,4 @@
+import type React from "react";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -18,7 +19,7 @@ export function Contact() {
     }),
     [l, o] = useState(!1),
     [q, setQ] = useState(""),
-    u = (g) => {
+    u = (g: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name: v, value: j } = g.target;
       i((x) => ({
         ...x,
@@ -26,7 +27,7 @@ export function Contact() {
       }));
     },
     [p, m] = useState(!1),
-    h = async (g) => {
+    h = async (g: React.FormEvent<HTMLFormElement>) => {
       g.preventDefault();
       m(!0);
       setQ("");
@@ -67,7 +68,7 @@ export function Contact() {
             o(!1));
         }, 7e3);
       } catch (e) {
-        setQ(e && e.message ? e.message : "Erreur inconnue lors de l'envoi.");
+        setQ(e instanceof Error ? e.message : "Erreur inconnue lors de l'envoi.");
       } finally {
         m(!1);
       }

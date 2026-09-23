@@ -14,7 +14,6 @@ import { SEO } from "@/components/SEO";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 import { Link } from "wouter";
-
 interface ARenseignerProps {
   children: ReactNode;
 }
@@ -23,14 +22,12 @@ interface ARenseignerProps {
 function ARenseigner({ children }: ARenseignerProps) {
   return <span className="font-semibold text-red-700">[À COMPLÉTER : {children}]</span>;
 }
-
 interface LegalSectionProps {
   title: string;
   /** Alterne le fond des sections, comme sur les autres pages du site. */
   tone?: "light" | "muted";
   children: ReactNode;
 }
-
 function LegalSection({ title, tone = "light", children }: LegalSectionProps) {
   return (
     <section
@@ -48,7 +45,6 @@ function LegalSection({ title, tone = "light", children }: LegalSectionProps) {
     </section>
   );
 }
-
 export function Confidentialite() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -82,8 +78,8 @@ export function Confidentialite() {
 
         <LegalSection title="1. Responsable du traitement">
           <p>
-            Le responsable du traitement est <ARenseigner>raison sociale exacte</ARenseigner>, dont le
-            siège social est situé <ARenseigner>adresse complète du siège social</ARenseigner>,
+            Le responsable du traitement est <ARenseigner>raison sociale exacte</ARenseigner>, dont
+            le siège social est situé <ARenseigner>adresse complète du siège social</ARenseigner>,
             immatriculée sous le numéro SIREN <ARenseigner>numéro SIREN</ARenseigner>.
           </p>
           <p>
@@ -97,8 +93,8 @@ export function Confidentialite() {
 
         <LegalSection title="2. Données collectées" tone="muted">
           <p>
-            Le formulaire de contact du site recueille les informations que vous saisissez
-            vous-même :
+            Le formulaire de contact du site recueille les informations que vous saisissez vous-même
+            :
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>nom complet ;</li>
@@ -124,14 +120,14 @@ export function Confidentialite() {
 
         <LegalSection title="3. Finalités et bases légales">
           <p>
-            Les données transmises via le formulaire sont utilisées pour prendre connaissance de votre
-            demande, y répondre et, le cas échéant, préparer une proposition de mission.
+            Les données transmises via le formulaire sont utilisées pour prendre connaissance de
+            votre demande, y répondre et, le cas échéant, préparer une proposition de mission.
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
               Réponse à une sollicitation commerciale ou informative : mesures précontractuelles
-              prises à votre demande (art. 6.1.b du RGPD) et intérêt légitime du cabinet à traiter les
-              demandes entrantes (art. 6.1.f).
+              prises à votre demande (art. 6.1.b du RGPD) et intérêt légitime du cabinet à traiter
+              les demandes entrantes (art. 6.1.f).
             </li>
             <li>
               Envoi éventuel d'informations ultérieures :{" "}
@@ -152,14 +148,14 @@ export function Confidentialite() {
 
         <LegalSection title="4. Destinataires et sous-traitants" tone="muted">
           <p>
-            Vos données sont destinées aux seuls collaborateurs du cabinet en charge du traitement de
-            votre demande. Elles ne font l'objet d'aucune cession ni location à des tiers.
+            Vos données sont destinées aux seuls collaborateurs du cabinet en charge du traitement
+            de votre demande. Elles ne font l'objet d'aucune cession ni location à des tiers.
           </p>
           <p>
             L'acheminement du formulaire est assuré par le service <strong>FormSubmit</strong> : la
-            soumission est transmise à l'adresse <code className="break-all">formsubmit.co</code>, qui
-            réexpédie le message vers la boîte de réception du cabinet. Ce prestataire agit en qualité
-            de sous-traitant au sens de l'article 28 du RGPD.
+            soumission est transmise à l'adresse <code className="break-all">formsubmit.co</code>,
+            qui réexpédie le message vers la boîte de réception du cabinet. Ce prestataire agit en
+            qualité de sous-traitant au sens de l'article 28 du RGPD.
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
@@ -187,7 +183,9 @@ export function Confidentialite() {
           <ul className="space-y-2 list-disc pl-5">
             <li>
               Demandes de contact sans suite :{" "}
-              <ARenseigner>durée retenue (usuellement 3 ans à compter du dernier contact)</ARenseigner>
+              <ARenseigner>
+                durée retenue (usuellement 3 ans à compter du dernier contact)
+              </ARenseigner>
             </li>
             <li>
               Demandes converties en mission :{" "}
@@ -205,7 +203,9 @@ export function Confidentialite() {
             Le site est servi en HTTPS et les échanges avec le service d'acheminement du formulaire
             sont chiffrés en transit. Le cabinet met en œuvre les mesures techniques et
             organisationnelles appropriées pour préserver la sécurité des données :{" "}
-            <ARenseigner>mesures effectivement en place (habilitations, sauvegardes, MFA…)</ARenseigner>
+            <ARenseigner>
+              mesures effectivement en place (habilitations, sauvegardes, MFA…)
+            </ARenseigner>
             .
           </p>
           <p>
@@ -217,9 +217,10 @@ export function Confidentialite() {
 
         <LegalSection title="7. Cookies et mesure d'audience">
           <p>
-            État actuel du site : <ARenseigner>confirmer la présence ou l'absence de cookies</ARenseigner>
-            . Seuls des cookies strictement nécessaires au fonctionnement du site peuvent être déposés
-            sans votre consentement ; tout traceur de mesure d'audience ou de publicité requiert une
+            État actuel du site :{" "}
+            <ARenseigner>confirmer la présence ou l'absence de cookies</ARenseigner>. Seuls des
+            cookies strictement nécessaires au fonctionnement du site peuvent être déposés sans
+            votre consentement ; tout traceur de mesure d'audience ou de publicité requiert une
             bannière de recueil du consentement.
           </p>
           <p>
@@ -239,7 +240,9 @@ export function Confidentialite() {
           <ul className="space-y-2 list-disc pl-5">
             <li>droit d'accès et droit d'obtenir une copie de vos données ;</li>
             <li>droit de rectification des données inexactes ou incomplètes ;</li>
-            <li>droit à l'effacement, dans les limites des obligations légales de conservation ;</li>
+            <li>
+              droit à l'effacement, dans les limites des obligations légales de conservation ;
+            </li>
             <li>droit à la limitation du traitement ;</li>
             <li>droit d'opposition, notamment à la prospection commerciale ;</li>
             <li>droit à la portabilité des données que vous nous avez fournies ;</li>
@@ -290,10 +293,11 @@ export function Confidentialite() {
           </p>
           <p>
             Les informations relatives à l'éditeur du site figurent dans les{" "}
-            <Link href="/mentions-legales">
-              <a className="font-semibold text-primary hover:text-accent transition-colors">
-                mentions légales
-              </a>
+            <Link
+              href="/mentions-legales"
+              className="font-semibold text-primary hover:text-accent transition-colors"
+            >
+              mentions légales
             </Link>
             .
           </p>
@@ -303,5 +307,4 @@ export function Confidentialite() {
     </div>
   );
 }
-
 export default Confidentialite;

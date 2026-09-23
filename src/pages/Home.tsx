@@ -19,7 +19,6 @@ import {
   Zap,
 } from "lucide-react";
 import { Link } from "wouter";
-
 const gm = [
   {
     id: 1,
@@ -102,7 +101,6 @@ const gm = [
     rating: 5,
   },
 ];
-
 function G0() {
   return (
     <div className="w-full overflow-hidden bg-secondary py-4">
@@ -127,18 +125,17 @@ function G0() {
       `}</style>
       <div className="relative flex overflow-hidden">
         <div className="carousel-container flex gap-6 w-max">
-          {gm.map((n) => (
-            <TestimonialsCarousel testimonial={n} />
+          {gm.map((n, index) => (
+            <TestimonialsCarousel key={index} testimonial={n} />
           ))}
-          {gm.map((n) => (
-            <TestimonialsCarousel testimonial={n} />
+          {gm.map((n, index) => (
+            <TestimonialsCarousel key={index} testimonial={n} />
           ))}
         </div>
       </div>
     </div>
   );
 }
-
 export function Home() {
   const n = {
     "@context": "https://schema.org",
@@ -203,18 +200,17 @@ export function Home() {
                 comptables, fiscaux et stratégiques.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 items-start">
-                <Link href="/services">
-                  <a className="rm-arrow-cta">
-                    Découvrir nos services
-                    <span className="rm-arrow-circle">
-                      <ArrowUpRight className="w-4 h-4 text-white" />
-                    </span>
-                  </a>
+                <Link href="/services" className="rm-arrow-cta">
+                  Découvrir nos services
+                  <span className="rm-arrow-circle">
+                    <ArrowUpRight className="w-4 h-4 text-white" />
+                  </span>
                 </Link>
-                <Link href="/contact">
-                  <a className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/50 text-white text-sm font-bold uppercase tracking-wide hover:border-accent hover:text-accent transition-colors">
-                    Prendre rendez-vous
-                  </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/50 text-white text-sm font-bold uppercase tracking-wide hover:border-accent hover:text-accent transition-colors"
+                >
+                  Prendre rendez-vous
                 </Link>
               </div>
             </div>
@@ -250,18 +246,17 @@ export function Home() {
                 comptables, fiscaux et stratégiques.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 items-start">
-                <Link href="/services">
-                  <a className="rm-arrow-cta">
-                    Découvrir nos services
-                    <span className="rm-arrow-circle">
-                      <ArrowUpRight className="w-4 h-4 text-white" />
-                    </span>
-                  </a>
+                <Link href="/services" className="rm-arrow-cta">
+                  Découvrir nos services
+                  <span className="rm-arrow-circle">
+                    <ArrowUpRight className="w-4 h-4 text-white" />
+                  </span>
                 </Link>
-                <Link href="/contact">
-                  <a className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/50 text-white text-sm font-bold uppercase tracking-wide hover:border-accent hover:text-accent transition-colors">
-                    Prendre rendez-vous
-                  </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/50 text-white text-sm font-bold uppercase tracking-wide hover:border-accent hover:text-accent transition-colors"
+                >
+                  Prendre rendez-vous
                 </Link>
               </div>
             </div>
@@ -298,7 +293,7 @@ export function Home() {
                   suffix: "h",
                 },
               ].map((i, l) => (
-                <div className="flex items-center gap-2 md:gap-4">
+                <div key={l} className="flex items-center gap-2 md:gap-4">
                   <i.icon
                     className="w-5 h-5 md:w-7 md:h-7 text-accent flex-shrink-0"
                     strokeWidth={1.75}
@@ -368,7 +363,7 @@ export function Home() {
                   desc: "Des solutions fiscales et sociales conformes, pensées pour améliorer votre rentabilité.",
                 },
               ].map((i, l) => (
-                <div className="rm-card p-6">
+                <div key={l} className="rm-card p-6">
                   <div
                     className="mb-5"
                     style={{
@@ -475,13 +470,11 @@ export function Home() {
               />
             </div>
             <div className="text-center mt-12">
-              <Link href="/services">
-                <a className="rm-arrow-cta">
-                  Voir tous nos services
-                  <span className="rm-arrow-circle">
-                    <ArrowUpRight className="w-4 h-4 text-white" />
-                  </span>
-                </a>
+              <Link href="/services" className="rm-arrow-cta">
+                Voir tous nos services
+                <span className="rm-arrow-circle">
+                  <ArrowUpRight className="w-4 h-4 text-white" />
+                </span>
               </Link>
             </div>
           </div>
@@ -506,7 +499,7 @@ export function Home() {
                     "Comptabilité dématérialisée",
                     "Moins de temps consacré aux tâches administratives",
                   ].map((i, l) => (
-                    <li className="flex items-center gap-3">
+                    <li key={l} className="flex items-center gap-3">
                       <CircleCheckBig className="w-5 h-5 text-accent flex-shrink-0" />
                       <span className="text-foreground/85 text-sm">{i}</span>
                     </li>
@@ -544,5 +537,4 @@ export function Home() {
     </div>
   );
 }
-
 export default Home;

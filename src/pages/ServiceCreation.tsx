@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CircleCheckBig, Zap } from "lucide-react";
 import { Link } from "wouter";
-
 export function ServiceCreation() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -48,12 +47,10 @@ export function ServiceCreation() {
                   permettre de démarrer votre activité dans les meilleures conditions.
                 </p>
                 <Link href="/contact">
-                  <a>
-                    <Button className="bg-accent text-white hover:bg-accent/90 gap-2">
-                      Commencer mon projet
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </a>
+                  <Button className="bg-accent text-white hover:bg-accent/90 gap-2">
+                    Commencer mon projet
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
                 </Link>
               </div>
               <div className="bg-secondary rounded-lg p-8">
@@ -261,11 +258,9 @@ export function ServiceCreation() {
               Contactez-nous pour discuter de votre projet et bénéficier d'un accompagnement expert.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -274,5 +269,4 @@ export function ServiceCreation() {
     </div>
   );
 }
-
 export default ServiceCreation;

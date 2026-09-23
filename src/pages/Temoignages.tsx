@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "wouter";
-
 export function Temoignages() {
   const n = [
     {
@@ -91,13 +90,13 @@ export function Temoignages() {
             <h2 className="text-4xl font-bold mb-16 text-center">Avis de nos clients</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {n.map((i, l) => (
-                <Card className="flex flex-col">
+                <Card key={l} className="flex flex-col">
                   <CardContent className="pt-6 flex flex-col flex-1">
                     <div className="flex gap-1 mb-4">
                       {Array.from({
                         length: i.rating,
-                      }).map((o, u) => (
-                        <Star className="w-5 h-5 fill-accent text-accent" />
+                      }).map((_, u) => (
+                        <Star key={u} className="w-5 h-5 fill-accent text-accent" />
                       ))}
                     </div>
                     <p className="text-foreground mb-6 flex-1 leading-relaxed italic">
@@ -212,12 +211,10 @@ export function Temoignages() {
               aider.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg gap-2">
-                  Nous contacter
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg gap-2">
+                Nous contacter
+                <ArrowRight className="w-4 h-4" />
+              </Button>
             </Link>
           </div>
         </section>
@@ -226,5 +223,4 @@ export function Temoignages() {
     </div>
   );
 }
-
 export default Temoignages;

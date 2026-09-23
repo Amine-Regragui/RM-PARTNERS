@@ -3,7 +3,6 @@ import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, CircleCheckBig, User } from "lucide-react";
 import { Link } from "wouter";
-
 export function BlogFacturationElectronique() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -11,11 +10,12 @@ export function BlogFacturationElectronique() {
       <main className="flex-1">
         <section className="bg-background border-b">
           <div className="container mx-auto px-4 py-4">
-            <Link href="/blog">
-              <a className="flex items-center gap-2 text-primary hover:text-accent/80 transition-colors">
-                <ArrowLeft className="w-4 h-4" />
-                Retour au blog
-              </a>
+            <Link
+              href="/blog"
+              className="flex items-center gap-2 text-primary hover:text-accent/80 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Retour au blog
             </Link>
           </div>
         </section>
@@ -224,11 +224,9 @@ export function BlogFacturationElectronique() {
                 électronique.
               </p>
               <Link href="/contact">
-                <a>
-                  <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6">
-                    Nous contacter
-                  </Button>
-                </a>
+                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6">
+                  Nous contacter
+                </Button>
               </Link>
             </div>
           </div>
@@ -237,42 +235,43 @@ export function BlogFacturationElectronique() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center">Articles connexes</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Link href="/blog">
-                <a className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-heading">
-                      Optimisation fiscale 2024
-                    </h3>
-                    <p className="text-foreground text-sm mb-4">
-                      Découvrez les meilleures stratégies d'optimisation fiscale pour votre
-                      entreprise en 2024.
-                    </p>
-                    <span className="text-accent text-sm font-semibold">Lire l'article</span>
-                  </div>
-                </a>
+              <Link
+                href="/blog"
+                className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-heading">Optimisation fiscale 2024</h3>
+                  <p className="text-foreground text-sm mb-4">
+                    Découvrez les meilleures stratégies d'optimisation fiscale pour votre entreprise
+                    en 2024.
+                  </p>
+                  <span className="text-accent text-sm font-semibold">Lire l'article</span>
+                </div>
               </Link>
-              <Link href="/blog">
-                <a className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-heading">Gestion de la paie</h3>
-                    <p className="text-foreground text-sm mb-4">
-                      Les dernières obligations en matière de gestion de paie et de déclarations
-                      sociales.
-                    </p>
-                    <span className="text-accent text-sm font-semibold">Lire l'article</span>
-                  </div>
-                </a>
+              <Link
+                href="/blog"
+                className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-heading">Gestion de la paie</h3>
+                  <p className="text-foreground text-sm mb-4">
+                    Les dernières obligations en matière de gestion de paie et de déclarations
+                    sociales.
+                  </p>
+                  <span className="text-accent text-sm font-semibold">Lire l'article</span>
+                </div>
               </Link>
-              <Link href="/blog">
-                <a className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-heading">Audit interne</h3>
-                    <p className="text-foreground text-sm mb-4">
-                      L'importance de l'audit interne pour la santé financière de votre entreprise.
-                    </p>
-                    <span className="text-accent text-sm font-semibold">Lire l'article →</span>
-                  </div>
-                </a>
+              <Link
+                href="/blog"
+                className="bg-background rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-heading">Audit interne</h3>
+                  <p className="text-foreground text-sm mb-4">
+                    L'importance de l'audit interne pour la santé financière de votre entreprise.
+                  </p>
+                  <span className="text-accent text-sm font-semibold">Lire l'article →</span>
+                </div>
               </Link>
             </div>
           </div>
@@ -282,5 +281,4 @@ export function BlogFacturationElectronique() {
     </div>
   );
 }
-
 export default BlogFacturationElectronique;

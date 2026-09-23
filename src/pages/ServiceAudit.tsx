@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CircleCheckBig } from "lucide-react";
 import { Link } from "wouter";
-
 export function ServiceAudit() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -76,12 +75,10 @@ export function ServiceAudit() {
                   totale.
                 </p>
                 <Link href="/contact">
-                  <a>
-                    <Button className="bg-accent text-white hover:bg-accent/90 gap-2">
-                      Demander un devis
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </a>
+                  <Button className="bg-accent text-white hover:bg-accent/90 gap-2">
+                    Demander un devis
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
                 </Link>
               </div>
               <div className="bg-secondary rounded-lg p-8">
@@ -283,11 +280,9 @@ export function ServiceAudit() {
               Contactez-nous pour discuter de vos besoins en audit et commissariat aux comptes.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -296,5 +291,4 @@ export function ServiceAudit() {
     </div>
   );
 }
-
 export default ServiceAudit;

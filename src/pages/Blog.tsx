@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Link } from "wouter";
-
 export function Blog() {
   const n = [
     {
@@ -434,8 +433,11 @@ export function Blog() {
         <section className="py-20 md:py-32 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {n.map((i) => (
-                <Card className="h-full hover:shadow-lg transition-shadow flex flex-col">
+              {n.map((i, index) => (
+                <Card
+                  key={index}
+                  className="h-full hover:shadow-lg transition-shadow flex flex-col"
+                >
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -457,15 +459,13 @@ export function Blog() {
                       </div>
                     </div>
                     <Link href={`/blog/${i.slug}`}>
-                      <a>
-                        <Button
-                          variant="outline"
-                          className="w-full gap-2 border-accent text-accent hover:bg-accent hover:text-white"
-                        >
-                          Lire l'article
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
-                      </a>
+                      <Button
+                        variant="outline"
+                        className="w-full gap-2 border-accent text-accent hover:bg-accent hover:text-white"
+                      >
+                        Lire l'article
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
                     </Link>
                   </CardContent>
                 </Card>
@@ -486,11 +486,9 @@ export function Blog() {
               Nos experts sont à votre disposition pour discuter de vos besoins spécifiques.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -499,5 +497,4 @@ export function Blog() {
     </div>
   );
 }
-
 export default Blog;

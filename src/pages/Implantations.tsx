@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Mail, MapPin, Phone, Users } from "lucide-react";
 import { Link } from "wouter";
-
 export function Implantations() {
   const n = [
     {
@@ -47,7 +46,7 @@ export function Implantations() {
             <h2 className="text-4xl font-bold mb-16 text-center">Notre bureau</h2>
             <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
               {n.map((i, l) => (
-                <Card className="overflow-hidden">
+                <Card key={l} className="overflow-hidden">
                   <CardContent className="p-0">
                     <div className="grid grid-cols-1 md:grid-cols-2">
                       <div className="bg-primary text-white p-8 flex flex-col justify-between">
@@ -171,11 +170,9 @@ export function Implantations() {
               Contactez-nous pour fixer un rendez-vous à notre bureau de Paris.
             </p>
             <Link href="/contact">
-              <a>
-                <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                  Nous contacter
-                </Button>
-              </a>
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
             </Link>
           </div>
         </section>
@@ -184,5 +181,4 @@ export function Implantations() {
     </div>
   );
 }
-
 export default Implantations;
