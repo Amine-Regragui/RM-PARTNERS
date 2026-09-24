@@ -8,6 +8,8 @@ import { Blog } from "@/pages/Blog";
 import { BlogArticle } from "@/pages/BlogArticle";
 import { BlogFacturationElectronique } from "@/pages/BlogFacturationElectronique";
 import { Contact } from "@/pages/Contact";
+import { Confidentialite } from "@/pages/Confidentialite";
+import { MentionsLegales } from "@/pages/MentionsLegales";
 import { Equipe } from "@/pages/Equipe";
 import { Home } from "@/pages/Home";
 import { Implantations } from "@/pages/Implantations";
@@ -65,9 +67,13 @@ export function AppRouter() {
         <Route path="/partenaires" component={Partenaires} />
         <Route path="/temoignages" component={Temoignages} />
         <Route path="/blog" component={Blog} />
-        <Route path="/blog/:slug" component={BlogArticle} />
+        {/* La page dédiée doit précéder /blog/:slug, sinon la route paramétrée
+            capture l'URL en premier et affiche « Article non trouvé ». */}
         <Route path="/blog/facturation-electronique" component={BlogFacturationElectronique} />
+        <Route path="/blog/:slug" component={BlogArticle} />
         <Route path="/contact" component={Contact} />
+        <Route path="/mentions-legales" component={MentionsLegales} />
+        <Route path="/confidentialite" component={Confidentialite} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

@@ -111,6 +111,33 @@ export function Footer() {
                     Contact
                   </Link>
                 </li>
+                {/* Ces pages n'étaient liées depuis nulle part : sans lien entrant,
+                    les moteurs de recherche ne les découvrent pas. */}
+                <li>
+                  <Link href="/secteurs" className="hover:text-accent transition-colors">
+                    Secteurs d'activité
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/temoignages" className="hover:text-accent transition-colors">
+                    Témoignages
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/partenaires" className="hover:text-accent transition-colors">
+                    Partenaires
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/implantations" className="hover:text-accent transition-colors">
+                    Implantations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/outils" className="hover:text-accent transition-colors">
+                    Outils
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -155,33 +182,24 @@ export function Footer() {
             <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/60">
               <p className="text-white/90">© 2019 RM Partners. Tous droits réservés.</p>
               <div className="flex gap-6 mt-4 md:mt-0">
-                <a
-                  href="#"
+                <Link
+                  href="/mentions-legales"
                   className="hover:text-accent transition-colors"
                   style={{
                     color: "#9c7a2e",
                   }}
                 >
                   Mentions légales
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/confidentialite"
                   className="hover:text-accent transition-colors"
                   style={{
                     color: "#9c7a2e",
                   }}
                 >
                   Politique de confidentialité
-                </a>
-                <a
-                  href="#"
-                  className="hover:text-accent transition-colors"
-                  style={{
-                    color: "#9c7a2e",
-                  }}
-                >
-                  Conditions d'utilisation
-                </a>
+                </Link>
               </div>
             </div>
           </div>

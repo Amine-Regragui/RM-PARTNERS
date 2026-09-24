@@ -16,6 +16,10 @@ export interface RouteEntry {
   dynamic?: boolean;
   /** true pour une route exclue du sitemap (page d'erreur, doublon) */
   noIndex?: boolean;
+  /** false pour pré-rendre la page sans la déclarer au sitemap. */
+  sitemap?: boolean;
+  /** Date ISO de dernière modification ; à défaut, la date du build est utilisée. */
+  lastmod?: string;
 }
 
 export const routes: RouteEntry[] = [
@@ -104,6 +108,10 @@ export const routes: RouteEntry[] = [
     path: "/services/controle",
     title: "Contrôle Fiscal",
     description: "Assistance et défense lors d'un contrôle fiscal pour sécuriser votre entreprise.",
+    // Doublon de /services/controle-fiscal : la page reste accessible pour ne pas
+    // casser d'éventuels liens, mais elle est exclue du sitemap afin de ne pas
+    // présenter deux URL concurrentes pour le même contenu.
+    sitemap: false,
   },
   {
     path: "/outils",
@@ -140,18 +148,30 @@ export const routes: RouteEntry[] = [
     dynamic: true,
   },
   {
-    // Déclarée après /blog/:slug dans le Switch : jamais atteinte en navigation.
+    // Déclarée AVANT /blog/:slug dans le Switch, sinon la route paramétrée
+    // capterait l'URL et afficherait « Article non trouvé ».
     path: "/blog/facturation-electronique",
     title: "Facturation Électronique : Obligations et Enjeux",
     description:
       "La facturation électronique est devenue un sujet incontournable pour les entreprises françaises. Depuis le 1er janvier 2024, les obligations se renforcent progressivement. Découvrez ce que vous devez savoir sur cette transformation digitale majeure.",
-    noIndex: true,
   },
   {
     path: "/contact",
     title: "Contactez-nous",
     description:
       "Contactez RM Partners, votre expert-comptable à Paris 8. Formulaire de contact, téléphone, email et plan d'accès à nos bureaux.",
+  },
+  {
+    path: "/mentions-legales",
+    title: "Mentions légales",
+    description:
+      "Mentions légales du cabinet RM Partners : éditeur du site, hébergeur, inscription à l'Ordre des experts-comptables et assurance professionnelle.",
+  },
+  {
+    path: "/confidentialite",
+    title: "Politique de confidentialité",
+    description:
+      "Politique de confidentialité de RM Partners : données collectées via le formulaire de contact, finalités, durée de conservation et exercice de vos droits RGPD.",
   },
   {
     path: "/404",
