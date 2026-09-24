@@ -228,7 +228,11 @@ function normalizeRoutes(rawRoutes) {
           ? String(raw.priority)
           : undefined,
       // Une page pré-rendue peut légitimement rester hors du sitemap (ex. /404).
-      inSitemap: raw.noindex !== true && raw.sitemap !== false && routePath !== "/404",
+      inSitemap:
+        raw.noindex !== true &&
+        raw.noIndex !== true &&
+        raw.sitemap !== false &&
+        routePath !== "/404",
     });
   }
 
@@ -316,13 +320,15 @@ function renderPage(shell, route, origin) {
  * 4. Sitemap
  * ------------------------------------------------------------------ */
 
-function renderSitemap(routes, origin) {
+function renderSitemap(routes, origin, buildDate) {
   const entries = routes
     .filter((route) => route.inSitemap)
     .map((route) => {
       const url = route.path === "/" ? `${origin}/` : `${origin}${route.path}`;
       const lines = [`    <loc>${escapeHtmlText(url)}</loc>`];
-      if (route.lastmod) lines.push(`    <lastmod>${escapeHtmlText(route.lastmod)}</lastmod>`);
+      // À défaut de date explicite, la date du build indique à Google quand recrawler.
+      const lastmod = route.lastmod || buildDate;
+      if (lastmod) lines.push(`    <lastmod>${escapeHtmlText(lastmod)}</lastmod>`);
       if (route.changefreq) lines.push(`    <changefreq>${escapeHtmlText(route.changefreq)}</changefreq>`);
       if (route.priority) lines.push(`    <priority>${escapeHtmlText(route.priority)}</priority>`);
       return `  <url>\n${lines.join("\n")}\n  </url>`;
@@ -332,6 +338,46 @@ function renderSitemap(routes, origin) {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.join("\n")}
 </urlset>
+`;
+}
+
+
+/* ------------------------------------------------------------------ *
+ * 4 bis. Redirections des anciennes URL
+ *
+ * Le site tournait sous Wix avant sa refonte. Ces URL restent référencées par
+ * Google et par d'éventuels liens externes. GitHub Pages ne sait pas faire de
+ * redirection HTTP : on publie donc une page qui redirige côté navigateur, avec
+ * un <link rel="canonical"> vers la destination — Google suit ce signal et
+ * transfère le référencement acquis.
+ *
+ * Les pages Wix sans équivalent (/page-vierge…) sont volontairement absentes :
+ * elles doivent continuer à renvoyer 404 pour que Google les retire. Les
+ * rediriger vers l'accueil créerait un « soft 404 », pénalisé.
+ * ------------------------------------------------------------------ */
+
+const LEGACY_REDIRECTS = {
+  "/expertise": "/services",
+  "/fonds": "/secteurs",
+  "/societes-de-gestion": "/secteurs",
+};
+
+function renderRedirect(origin, target) {
+  const url = `${origin}${target}`;
+  return `<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page déplacée</title>
+    <link rel="canonical" href="${url}" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=${url}" />
+    <script>window.location.replace(${JSON.stringify(url)});</script>
+  </head>
+  <body>
+    <p>Cette page a été déplacée. <a href="${url}">Continuer vers ${target}</a>.</p>
+  </body>
+</html>
 `;
 }
 
@@ -393,12 +439,19 @@ async function main() {
   // démarre la SPA avec les métadonnées d'accueil plutôt qu'une page vide.
   await writeFile(path.join(DIST_DIR, "404.html"), shell, "utf8");
 
-  const sitemap = renderSitemap(routes, origin);
+  for (const [from, to] of Object.entries(LEGACY_REDIRECTS)) {
+    const outFile = path.join(DIST_DIR, ...from.split("/").filter(Boolean), "index.html");
+    await mkdir(path.dirname(outFile), { recursive: true });
+    await writeFile(outFile, renderRedirect(origin, to), "utf8");
+  }
+
+  const buildDate = new Date().toISOString().slice(0, 10);
+  const sitemap = renderSitemap(routes, origin, buildDate);
   await writeFile(path.join(DIST_DIR, "sitemap.xml"), sitemap, "utf8");
 
   const indexed = routes.filter((route) => route.inSitemap).length;
   console.log(
-    `[prerender] ${routes.length} page(s) écrite(s) sur ${origin} · ${indexed} URL dans sitemap.xml · 404.html généré.`,
+    `[prerender] ${routes.length} page(s) écrite(s) sur ${origin} · ${indexed} URL dans sitemap.xml · ${Object.keys(LEGACY_REDIRECTS).length} redirection(s) · 404.html généré.`,
   );
   if (skipped.length > 0) {
     console.log(`[prerender] Routes paramétrées ignorées (servies par 404.html) : ${skipped.join(", ")}`);
