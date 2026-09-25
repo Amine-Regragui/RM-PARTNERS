@@ -2,7 +2,7 @@ name: Déploiement GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [restore-24-sept]
   workflow_dispatch:
 
 permissions:
