@@ -129,7 +129,7 @@ export function Services() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-5">
               Nos prestations
             </p>
-            <h1 className="text-white mb-6 max-w-3xl">Nos services</h1>
+            <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 max-w-3xl">Nos services</h1>
             <p className="text-lg text-white/85 max-w-2xl">
               Une gamme complète de services comptables, fiscaux, sociaux et juridiques adaptés aux
               besoins de chaque entreprise.
