@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { Button } from "@/components/ui/button";
-import { Award, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Award, Mail, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { useReveal } from "@/hooks/useReveal";
 export function Equipe() {
+  // Rétablit l'affichage des fiches et des chiffres clés (classes rm-reveal /
+  // data-rm-counter) : sans ce hook, ils restaient à opacité 0 et « 0+ ».
+  // En-tête et parallaxe désactivés pour ne rien changer au reste du site.
+  useReveal({ header: false, parallax: false });
   const n = [
       {
         name: "Amine Regragui",
@@ -193,11 +197,24 @@ export function Equipe() {
                   className="rm-reveal rm-card rounded-2xl overflow-hidden bg-white flex flex-col h-full border-t-4 border-accent"
                 >
                   <div className="p-8 md:p-10 flex flex-col flex-1">
-                    <h3 className="text-2xl font-bold text-heading mb-1">{i.name}</h3>
-                    <p className="text-accent font-semibold mb-1">{i.title}</p>
-                    <p className="text-xs text-foreground/60 uppercase tracking-wider font-semibold mb-4">
-                      {i.role}
-                    </p>
+                    <div className="flex items-center gap-5 mb-5">
+                      <img
+                        src={`/${i.avatar}`}
+                        alt={`${i.name}, ${i.title}`}
+                        width={112}
+                        height={112}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-20 h-20 md:w-28 md:h-28 rounded-2xl object-cover object-top flex-shrink-0 ring-2 ring-accent/40 ring-offset-2 ring-offset-white shadow-md"
+                      />
+                      <div className="min-w-0">
+                        <h3 className="text-xl md:text-2xl font-bold text-heading mb-1">{i.name}</h3>
+                        <p className="text-accent font-semibold mb-1">{i.title}</p>
+                        <p className="text-xs text-foreground/60 uppercase tracking-wider font-semibold">
+                          {i.role}
+                        </p>
+                      </div>
+                    </div>
                     <p className="text-sm text-foreground/85 leading-relaxed mb-5">{i.bio}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {i.specialties.map((o, u) => (
@@ -315,16 +332,35 @@ export function Equipe() {
             </div>
           </div>
         </section>
-        <section className="py-20 md:py-32 bg-gradient-to-r from-primary to-primary/90 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6">Rencontrez notre équipe</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        <section className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-r from-primary to-primary/90 text-white">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 70% at 50% 0%, rgba(200,155,60,0.14) 0%, rgba(200,155,60,0) 70%)",
+            }}
+          />
+          <div className="container mx-auto px-4 text-center relative">
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <span className="h-px w-8 bg-accent" aria-hidden="true" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-accent">
+                Parlons de votre projet
+              </span>
+              <span className="h-px w-8 bg-accent" aria-hidden="true" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-6">
+              Rencontrez notre équipe
+            </h2>
+            <div className="w-16 h-[3px] bg-accent rounded-full mx-auto mb-7" aria-hidden="true" />
+            <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-10 max-w-2xl mx-auto">
               Contactez-nous pour discuter de vos projets avec nos experts.
             </p>
-            <Link href="/contact">
-              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
-                Nous contacter
-              </Button>
+            <Link href="/contact" className="rm-arrow-cta">
+              Nous contacter
+              <span className="rm-arrow-circle">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </span>
             </Link>
           </div>
         </section>
