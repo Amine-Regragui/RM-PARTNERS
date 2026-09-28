@@ -198,15 +198,15 @@ export function Equipe() {
                 >
                   <div className="p-8 md:p-10 flex flex-col flex-1">
                     <div className="flex items-center gap-5 mb-5">
-                      <img
-                        src={`/${i.avatar}`}
-                        alt={`${i.name}, ${i.title}`}
-                        width={112}
-                        height={112}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-20 h-20 md:w-28 md:h-28 rounded-2xl object-cover object-top flex-shrink-0 ring-2 ring-accent/40 ring-offset-2 ring-offset-white shadow-md"
-                      />
+                      <div
+                        role="img"
+                        aria-label={i.name}
+                        className="rm-initial w-20 h-20 md:w-24 md:h-24 rounded-full flex-shrink-0 flex items-center justify-center bg-primary text-accent ring-2 ring-accent/50 ring-offset-2 ring-offset-white shadow-md select-none"
+                      >
+                        <span aria-hidden="true" className="text-4xl md:text-5xl leading-none">
+                          {i.name.charAt(0)}
+                        </span>
+                      </div>
                       <div className="min-w-0">
                         <h3 className="text-xl md:text-2xl font-bold text-heading mb-1">{i.name}</h3>
                         <p className="text-accent font-semibold mb-1">{i.title}</p>
