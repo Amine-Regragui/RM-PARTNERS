@@ -92,7 +92,7 @@ export function Contact() {
           </div>
           <div className="container mx-auto px-4 relative z-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-5">Contact</p>
-            <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 max-w-3xl">Contactez-nous</h1>
+            <h1 className="text-white mb-6 max-w-3xl">Contactez-nous</h1>
             <p className="text-lg text-white/85 max-w-2xl">
               Nous sommes à votre écoute pour répondre à vos questions et vous accompagner dans vos
               projets.
@@ -169,7 +169,7 @@ export function Contact() {
                         Horaires
                       </p>
                       <p className="text-heading font-semibold leading-snug">
-                        Lun - Ven : 9h - 18h
+                        Lun - Ven : 8h - 17h30
                         <br />
                         Sur rendez-vous
                       </p>
