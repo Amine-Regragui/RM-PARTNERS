@@ -87,10 +87,10 @@ export const site: SiteConfig = {
     emailHref: "mailto:a.regragui@rmpartners.fr",
   },
   hours: {
-    weekdays: "Lun - Ven : 9h - 18h",
+    weekdays: "Lun - Ven : 8h - 17h30",
     note: "Sur rendez-vous",
-    opens: "09:00",
-    closes: "18:00",
+    opens: "08:00",
+    closes: "17:30",
     daysOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
   },
   geo: {
