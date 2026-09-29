@@ -1,3 +1,6 @@
+/* Police du logo (titres, chiffres clés, boutons) — même service Google Fonts
+   que la police Inter déjà chargée dans index.html. Doit rester en tête de fichier. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
@@ -110,3 +113,96 @@
 
 @import "./styles/components.css";
 @import "./styles/motion.css";
+
+/* ==================================================================
+   TYPOGRAPHIE — harmonisation avec le logo RM PARTNERS
+
+   Le logo utilise une capitale romaine classique à fort contraste
+   (empattements fins, pleins et déliés marqués, capitales espacées).
+   Cormorant Garamond en est la police web la plus proche.
+
+   - Titres, chiffres clés, initiales de l'équipe et boutons : Cormorant Garamond.
+   - Texte courant, menus, formulaires et petites mentions en capitales :
+     Inter, inchangé (comme la ligne « EXPERTISE • AUDIT • CONSEIL » du logo).
+   Couleurs, logo et configuration : inchangés.
+================================================================== */
+:root {
+  --font-display: "Cormorant Garamond", Garamond, "Times New Roman", Georgia, serif;
+}
+
+/* Titres — dans @layer base : les classes posées dans les pages
+   (font-semibold, leading-tight, tracking-…, tailles) gardent la priorité. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    line-height: 1.15;
+    font-variant-numeric: lining-nums;
+    text-wrap: balance;
+    /* Cormorant a un œil plus petit qu'Inter : on aligne sa taille optique
+       (≈ +12 %) pour garder la même présence et la même hiérarchie. */
+    font-size-adjust: 0.45;
+  }
+  h3,
+  h4 {
+    letter-spacing: 0.01em;
+  }
+  /* Petits intertitres en capitales espacées (pied de page…) : restent en Inter. */
+  :is(h1, h2, h3, h4).uppercase {
+    font-family: var(--font-sans);
+    font-size-adjust: none;
+  }
+  /* Titres de bannière sans taille déclarée (« Nos services », « Contactez-nous ») :
+     même taille que les autres bannières. Sur mobile, la règle existante
+     de motion.css (1,5 rem) reste prioritaire. */
+  .rm-banner-hero h1 {
+    font-size: 1.875rem;
+  }
+  @media (min-width: 48rem) {
+    .rm-banner-hero h1 {
+      font-size: 3.75rem;
+    }
+  }
+}
+
+/* Ancien style « display » (Georgia) du titre d'accueil → police du logo */
+.rm-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Chiffres clés animés (15+, 500+, 98 %…) */
+[data-rm-counter] {
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0;
+  font-size-adjust: 0.45;
+}
+
+/* Initiales des membres de l'équipe (page Équipe) */
+.rm-initial span {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+}
+
+/* Boutons */
+[data-slot="button"],
+.rm-arrow-cta,
+button[type="submit"],
+a.border-2.uppercase {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size-adjust: 0.45;
+}
+/* Boutons en capitales (« Nous contacter », « Prendre rendez-vous ») :
+   capitales espacées, dans l'esprit de « RM PARTNERS ». */
+.rm-arrow-cta,
+a.border-2.uppercase {
+  letter-spacing: 0.1em;
+}
