@@ -134,7 +134,7 @@ export function Equipe() {
                 <span>Notre philosophie</span>
               </div>
               <h2 className="text-4xl md:text-6xl font-bold text-heading mb-5 leading-tight">
-                Notre équipe
+                Proximité, rigueur et expertise
               </h2>
               <div className="w-20 h-1 bg-accent rounded mx-auto mb-8" />
               <p className="text-lg md:text-xl text-foreground/85 leading-relaxed">
@@ -190,6 +190,18 @@ export function Equipe() {
           }}
         >
           <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+              <div className="rm-eyebrow justify-center mb-4">
+                <span>Notre équipe</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-heading mb-5 leading-tight">
+                Une équipe d'experts à vos côtés
+              </h2>
+              <p className="text-lg text-foreground/85 leading-relaxed">
+                Des professionnels engagés, complémentaires et à l'écoute, pour vous accompagner
+                dans tous vos projets.
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
               {n.map((i, l) => (
                 <div
@@ -203,7 +215,11 @@ export function Equipe() {
                         aria-label={i.name}
                         className="rm-initial w-20 h-20 md:w-24 md:h-24 rounded-full flex-shrink-0 flex items-center justify-center bg-primary text-accent ring-2 ring-accent/50 ring-offset-2 ring-offset-white shadow-md select-none"
                       >
-                        <span aria-hidden="true" className="text-4xl md:text-5xl leading-none">
+                        <span
+                          aria-hidden="true"
+                          className="text-4xl md:text-5xl leading-none"
+                          style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontWeight: 400 }}
+                        >
                           {i.name.charAt(0)}
                         </span>
                       </div>
@@ -297,9 +313,10 @@ export function Equipe() {
         </section>
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-12 text-center">
-              Pourquoi faire confiance à notre équipe ?
-            </h2>
+            <div className="rm-eyebrow justify-center mb-4">
+              <span>Nos engagements</span>
+            </div>
+            <h2 className="text-4xl font-bold mb-12 text-center">Pourquoi nous faire confiance</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-secondary rounded-lg p-8 text-center">
                 <div className="text-accent flex items-center justify-center mx-auto mb-4">
