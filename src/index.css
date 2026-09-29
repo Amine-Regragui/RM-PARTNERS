@@ -1,6 +1,7 @@
-/* Police du logo (titres, chiffres clés, boutons) — même service Google Fonts
-   que la police Inter déjà chargée dans index.html. Doit rester en tête de fichier. */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap");
+/* Polices de l'identité RM PARTNERS (Cinzel, Cormorant Garamond, Montserrat),
+   chargées depuis Google Fonts comme la police Inter déjà appelée dans index.html.
+   Cet @import doit rester la toute première ligne du fichier. */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
@@ -45,7 +46,7 @@
   --color-sidebar-ring: #c89b3c;
 
   --radius: 0.25rem;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-script: "Mrs Saint Delafield", cursive;
 }
 
@@ -115,50 +116,65 @@
 @import "./styles/motion.css";
 
 /* ==================================================================
-   TYPOGRAPHIE — harmonisation avec le logo RM PARTNERS
+   TYPOGRAPHIE — identité RM PARTNERS
 
-   Le logo utilise une capitale romaine classique à fort contraste
-   (empattements fins, pleins et déliés marqués, capitales espacées).
-   Cormorant Garamond en est la police web la plus proche.
+   Cinzel ............ titres principaux (h1, h2), chiffres clés, boutons,
+                       initiales : capitales romaines, comme « RM PARTNERS ».
+   Cormorant Garamond  sous-titres (h3, h4), citations des témoignages.
+   Montserrat ........ paragraphes, menus, formulaires, petites mentions.
 
-   - Titres, chiffres clés, initiales de l'équipe et boutons : Cormorant Garamond.
-   - Texte courant, menus, formulaires et petites mentions en capitales :
-     Inter, inchangé (comme la ligne « EXPERTISE • AUDIT • CONSEIL » du logo).
-   Couleurs, logo et configuration : inchangés.
+   Seuls les polices, tailles, graisses, interlettrages et interlignes
+   sont définis ici : ni contenu, ni structure, ni couleurs.
 ================================================================== */
 :root {
-  --font-display: "Cormorant Garamond", Garamond, "Times New Roman", Georgia, serif;
+  --font-title: "Cinzel", "Trajan Pro", Georgia, "Times New Roman", serif;
+  --font-elegant: "Cormorant Garamond", Garamond, Georgia, "Times New Roman", serif;
 }
 
-/* Titres — dans @layer base : les classes posées dans les pages
-   (font-semibold, leading-tight, tracking-…, tailles) gardent la priorité. */
 @layer base {
+  /* Texte courant : Montserrat. Taille optique légèrement réduite (≈ -6 %)
+     car Montserrat est plus large qu'Inter : les blocs gardent leur mise en page. */
+  body {
+    font-size-adjust: 0.49;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+  }
+  p {
+    line-height: 1.7;
+  }
+
+  /* Titres principaux : Cinzel. Cinzel est très large (capitales romaines) :
+     sa taille optique est ramenée d'environ 15 % pour garder la même hiérarchie
+     sans débordement, avec un interlettrage aéré comme dans le logo. */
   h1,
-  h2,
+  h2 {
+    font-family: var(--font-title);
+    font-size-adjust: 0.425;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  /* Sous-titres : Cormorant Garamond, élégant et lisible en minuscules. */
   h3,
   h4 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: 0.005em;
-    line-height: 1.15;
+    font-family: var(--font-elegant);
+    font-size-adjust: 0.45;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
     font-variant-numeric: lining-nums;
     text-wrap: balance;
-    /* Cormorant a un œil plus petit qu'Inter : on aligne sa taille optique
-       (≈ +12 %) pour garder la même présence et la même hiérarchie. */
-    font-size-adjust: 0.45;
   }
-  h3,
-  h4 {
-    letter-spacing: 0.01em;
-  }
-  /* Petits intertitres en capitales espacées (pied de page…) : restent en Inter. */
+
+  /* Petits intertitres en capitales espacées (pied de page…) : Montserrat. */
   :is(h1, h2, h3, h4).uppercase {
     font-family: var(--font-sans);
     font-size-adjust: none;
   }
+
   /* Titres de bannière sans taille déclarée (« Nos services », « Contactez-nous ») :
-     même taille que les autres bannières. Sur mobile, la règle existante
-     de motion.css (1,5 rem) reste prioritaire. */
+     même taille que les autres bannières. Sur mobile, la règle existante de
+     motion.css (1,5 rem) reste prioritaire. */
   .rm-banner-hero h1 {
     font-size: 1.875rem;
   }
@@ -169,40 +185,66 @@
   }
 }
 
-/* Ancien style « display » (Georgia) du titre d'accueil → police du logo */
-.rm-display {
-  font-family: var(--font-display);
+/* Graisses harmonisées : Cinzel se lit mieux en demi-gras qu'en gras plein. */
+h1,
+h2 {
+  font-weight: 600;
+}
+h3,
+h4 {
   font-weight: 700;
-  letter-spacing: 0;
+}
+:is(h1, h2, h3, h4).uppercase {
+  font-weight: 600;
 }
 
-/* Chiffres clés animés (15+, 500+, 98 %…) */
+/* Grand titre de l'accueil (ancien style Georgia) */
+.rm-display {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  font-size-adjust: 0.425;
+}
+
+/* Surtitres en capitales (« NOS PRESTATIONS », « NOTRE PHILOSOPHIE »…) */
+.rm-eyebrow span {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* Chiffres clés (15+, 500+, 98 %…) */
 [data-rm-counter] {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   font-variant-numeric: lining-nums tabular-nums;
-  letter-spacing: 0;
-  font-size-adjust: 0.45;
+  font-size-adjust: 0.425;
 }
 
-/* Initiales des membres de l'équipe (page Équipe) */
+/* Initiales des membres de l'équipe */
 .rm-initial span {
-  font-family: var(--font-display) !important;
-  font-weight: 600 !important;
+  font-family: var(--font-title) !important;
+  font-weight: 500 !important;
 }
 
-/* Boutons */
+/* Citations des témoignages */
+p.italic {
+  font-family: var(--font-elegant);
+  font-style: italic;
+  font-weight: 500;
+  font-size-adjust: 0.43;
+  line-height: 1.55;
+}
+
+/* Boutons : Cinzel, capitales espacées dans l'esprit du logo */
 [data-slot="button"],
 .rm-arrow-cta,
 button[type="submit"],
 a.border-2.uppercase {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  font-size-adjust: 0.45;
-}
-/* Boutons en capitales (« Nous contacter », « Prendre rendez-vous ») :
-   capitales espacées, dans l'esprit de « RM PARTNERS ». */
-.rm-arrow-cta,
-a.border-2.uppercase {
-  letter-spacing: 0.1em;
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size-adjust: 0.425;
 }
