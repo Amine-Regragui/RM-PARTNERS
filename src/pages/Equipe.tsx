@@ -133,11 +133,11 @@ export function Equipe() {
               <div className="rm-eyebrow justify-center mb-4">
                 <span>Notre philosophie</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold text-heading mb-5 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold text-heading mb-5 leading-tight">
                 Proximité, rigueur et expertise
               </h2>
               <div className="w-20 h-1 bg-accent rounded mx-auto mb-8" />
-              <p className="text-lg md:text-xl text-foreground/85 leading-relaxed">
+              <p className="text-base md:text-lg text-foreground/85 leading-relaxed">
                 Un accompagnement humain, une expertise reconnue et une proximité au service de
                 votre réussite.
               </p>
@@ -145,40 +145,60 @@ export function Equipe() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mt-16 max-w-4xl mx-auto">
               <div className="rm-reveal text-center">
                 <div
-                  className="text-4xl md:text-5xl font-bold text-heading"
+                  className="text-2xl md:text-4xl font-bold text-heading"
                   data-rm-counter=""
                   data-target="15"
                   data-suffix="+"
                 >
                   0+
                 </div>
-                <p className="text-sm text-foreground/70 mt-2">Années d'expérience</p>
+                <p
+                  className="text-foreground/70 font-semibold uppercase mt-2"
+                  style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                >
+                  Années d'expérience
+                </p>
               </div>
               <div className="rm-reveal text-center">
                 <div
-                  className="text-4xl md:text-5xl font-bold text-heading"
+                  className="text-2xl md:text-4xl font-bold text-heading"
                   data-rm-counter=""
                   data-target="500"
                   data-suffix="+"
                 >
                   0+
                 </div>
-                <p className="text-sm text-foreground/70 mt-2">Clients accompagnés</p>
+                <p
+                  className="text-foreground/70 font-semibold uppercase mt-2"
+                  style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                >
+                  Clients accompagnés
+                </p>
               </div>
               <div className="rm-reveal text-center">
                 <div
-                  className="text-4xl md:text-5xl font-bold text-heading"
+                  className="text-2xl md:text-4xl font-bold text-heading"
                   data-rm-counter=""
                   data-target="98"
                   data-suffix="%"
                 >
                   0%
                 </div>
-                <p className="text-sm text-foreground/70 mt-2">Clients satisfaits</p>
+                <p
+                  className="text-foreground/70 font-semibold uppercase mt-2"
+                  style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                >
+                  Clients satisfaits
+                </p>
               </div>
               <div className="rm-reveal text-center">
                 <div className="text-2xl md:text-3xl font-bold text-heading">France</div>
-                <p className="text-sm text-foreground/70 mt-2">Présence internationale</p>
+                <p
+                  className="text-foreground/70 font-semibold uppercase mt-2"
+                  style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                >
+                  Présence internationale
+                </p>
               </div>
             </div>
           </div>
@@ -194,7 +214,7 @@ export function Equipe() {
               <div className="rm-eyebrow justify-center mb-4">
                 <span>Notre équipe</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-heading mb-5 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold text-heading mb-5">
                 Une équipe d'experts à vos côtés
               </h2>
               <p className="text-lg text-foreground/85 leading-relaxed">
@@ -224,7 +244,7 @@ export function Equipe() {
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl md:text-2xl font-bold text-heading mb-1">{i.name}</h3>
+                        <h3 className="text-xl font-bold text-heading mb-1">{i.name}</h3>
                         <p className="text-accent font-semibold mb-1">{i.title}</p>
                         <p className="text-xs text-foreground/60 uppercase tracking-wider font-semibold">
                           {i.role}
@@ -316,7 +336,7 @@ export function Equipe() {
             <div className="rm-eyebrow justify-center mb-4">
               <span>Nos engagements</span>
             </div>
-            <h2 className="text-4xl font-bold mb-12 text-center">Pourquoi nous faire confiance</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">Pourquoi nous faire confiance</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-secondary rounded-lg p-8 text-center">
                 <div className="text-accent flex items-center justify-center mx-auto mb-4">
@@ -366,7 +386,7 @@ export function Equipe() {
               </span>
               <span className="h-px w-8 bg-accent" aria-hidden="true" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Rencontrez notre équipe
             </h2>
             <div className="w-16 h-[3px] bg-accent rounded-full mx-auto mb-7" aria-hidden="true" />
