@@ -1,344 +1,179 @@
-import type React from "react";
-import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
-
-export function Contact() {
-  const [n, i] = useState({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    }),
-    [l, o] = useState(!1),
-    [q, setQ] = useState(""),
-    u = (g: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { name: v, value: j } = g.target;
-      i((x) => ({
-        ...x,
-        [v]: j,
-      }));
+import { Card, CardContent } from "@/components/ui/card";
+import { Clock, Mail, MapPin, Phone, Users } from "lucide-react";
+import { Link } from "wouter";
+export function Implantations() {
+  const n = [
+    {
+      name: "Siège social - Paris",
+      address: "61 rue la Boétie",
+      city: "75008 Paris",
+      phone: "+33 6 03 40 68 53",
+      email: "a.regragui@rmpartners.fr",
+      hours: "Lun - Ven : 8h - 17h30",
+      description: "Notre siège social et principal bureau à Paris, au cœur du 8e arrondissement.",
+      team: "Équipe complète",
     },
-    [p, m] = useState(!1),
-    h = async (g: React.FormEvent<HTMLFormElement>) => {
-      g.preventDefault();
-      m(!0);
-      setQ("");
-      try {
-        const r = await fetch("https://formsubmit.co/ajax/a.regragui@rmpartners.fr", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            "Nom complet": n.name,
-            Entreprise: n.company,
-            Email: n.email,
-            Téléphone: n.phone,
-            Objet: n.subject,
-            Message: n.message,
-            _subject: "Nouvelle demande de contact — RM Partners",
-          }),
-        });
-        const d = await r.json().catch(() => null);
-        if (!r.ok || !d || d.success === false || d.success === "false")
-          throw new Error(
-            d && d.message
-              ? d.message
-              : "Le serveur d'envoi a refusé la requête (code " + r.status + ").",
-          );
-        o(!0);
-        setTimeout(() => {
-          (i({
-            name: "",
-            company: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-          }),
-            o(!1));
-        }, 7e3);
-      } catch (e) {
-        setQ(e instanceof Error ? e.message : "Erreur inconnue lors de l'envoi.");
-      } finally {
-        m(!1);
-      }
-    };
+  ];
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO
-        title="Contactez-nous"
-        description="Contactez RM Partners, votre expert-comptable à Paris 8. Formulaire de contact, téléphone, email et plan d'accès à nos bureaux."
-      />
       <Header />
       <main className="flex-1">
-        <section className="relative flex items-center rm-banner-hero">
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            <img
-              src="/contact-hero.jpg"
-              alt="Contactez-nous"
-              className="w-full h-full object-cover rm-hero-img"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/55 via-primary/40 to-primary/25" />
-          </div>
-          <div className="container mx-auto px-4 relative z-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-5">Contact</p>
-            <h1 className="text-white mb-6 max-w-3xl">Contactez-nous</h1>
-            <p className="text-lg text-white/85 max-w-2xl">
-              Nous sommes à votre écoute pour répondre à vos questions et vous accompagner dans vos
-              projets.
+        <section className="bg-gradient-to-br from-primary to-primary/90 text-white py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <h1 className="text-3xl md:text-6xl font-bold mb-6">Nos Implantations</h1>
+            <p className="text-base md:text-xl text-white/90 max-w-2xl">
+              Retrouvez RM Partners à Paris pour un accompagnement de proximité.
             </p>
           </div>
         </section>
-        <section className="rm-section bg-white">
+        <section className="py-20 md:py-32 bg-background">
           <div className="container mx-auto px-4">
-            <div className="rm-fade-up max-w-2xl mx-auto text-center mb-16 md:mb-20">
-              <div className="rm-eyebrow justify-center">
-                <span>Contact</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-heading mt-4">Contactez-nous</h2>
-              <div className="w-16 h-0.5 bg-accent rounded mx-auto mt-6">{""}</div>
-              <p className="text-foreground/70 mt-6 leading-relaxed text-lg">
-                Une question, un projet ? Notre équipe vous répond rapidement, par téléphone, e-mail
-                ou directement à notre cabinet parisien.
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">Présent pour vous</h2>
+              <p className="text-lg text-foreground leading-relaxed">
+                RM Partners est implanté à Paris pour vous offrir un accompagnement de proximité.
+                Notre équipe d'experts est à votre disposition pour répondre à vos questions et vous
+                conseiller.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
-              <div className="rm-fade-up">
-                <h3 className="text-xl font-bold text-heading mb-2">Nos coordonnées</h3>
-                <div className="divide-y divide-border">
-                  <a
-                    href="https://maps.google.com/?q=61+rue+la+Boétie+75008+Paris"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-4 py-5"
-                  >
-                    <div className="w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                        Adresse
-                      </p>
-                      <p className="text-heading font-semibold leading-snug">
-                        61 rue la Boétie
-                        <br />
-                        75008 Paris
-                      </p>
-                    </div>
-                  </a>
-                  <a href="tel:+33603406853" className="flex items-start gap-4 py-5">
-                    <div className="w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                        Téléphone
-                      </p>
-                      <p className="text-heading font-semibold">+33 6 03 40 68 53</p>
-                    </div>
-                  </a>
-                  <a href="mailto:a.regragui@rmpartners.fr" className="flex items-start gap-4 py-5">
-                    <div className="w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                        Email
-                      </p>
-                      <p className="text-heading font-semibold break-all">
-                        a.regragui@rmpartners.fr
-                      </p>
-                    </div>
-                  </a>
-                  <div className="flex items-start gap-4 py-5">
-                    <div className="w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
-                      <Clock className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                        Horaires
-                      </p>
-                      <p className="text-heading font-semibold leading-snug">
-                        Lun - Ven : 8h - 17h30
-                        <br />
-                        Sur rendez-vous
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-border mt-8 h-72">
-                  <iframe
-                    src="https://www.google.com/maps?q=61+rue+la+Boétie+75008+Paris&output=embed"
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Localisation RM Partners"
-                  />
-                </div>
-              </div>
-              <div className="rm-fade-up">
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-heading mb-2">Envoyez-nous un message</h3>
-                </div>
-                {l ? (
-                  <div className="bg-accent/5 border border-accent/30 rounded-2xl p-10 text-center">
-                    <h3 className="text-2xl font-bold text-heading mb-2">Merci !</h3>
-                    <p className="text-foreground/70">
-                      Votre demande a bien été envoyée. Nous vous remercions de votre confiance et
-                      vous répondrons dans les plus brefs délais.
-                    </p>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={h}
-                    className="bg-secondary/40 border border-border rounded-2xl p-8 md:p-10 space-y-6"
-                  >
-                    {q && (
-                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 flex items-start gap-2">
-                        <span>⚠️</span>
-                        <span>Échec de l'envoi : {q}</span>
+          </div>
+        </section>
+        <section className="py-20 md:py-32 bg-secondary">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-16 text-center">Notre bureau</h2>
+            <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
+              {n.map((i, l) => (
+                <Card key={l} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                      <div className="bg-primary text-white p-8 flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-3xl font-bold mb-4">{i.name}</h3>
+                          <p className="text-white/90 mb-8 leading-relaxed">{i.description}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-8 h-8 text-accent" />
+                          <span className="text-white">{i.team}</span>
+                        </div>
                       </div>
-                    )}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium mb-2 text-heading"
-                        >
-                          Nom complet *
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          value={n.name}
-                          onChange={u}
-                          required={!0}
-                          placeholder="Jean Dupont"
-                          className="w-full bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl h-12 focus-visible:ring-accent focus-visible:border-accent"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="company"
-                          className="block text-sm font-medium mb-2 text-heading"
-                        >
-                          Entreprise
-                        </label>
-                        <Input
-                          id="company"
-                          name="company"
-                          type="text"
-                          value={n.company}
-                          onChange={u}
-                          placeholder="Votre entreprise"
-                          className="w-full bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl h-12 focus-visible:ring-accent focus-visible:border-accent"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium mb-2 text-heading"
-                        >
-                          Email *
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={n.email}
-                          onChange={u}
-                          required={!0}
-                          placeholder="jean@example.com"
-                          className="w-full bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl h-12 focus-visible:ring-accent focus-visible:border-accent"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium mb-2 text-heading"
-                        >
-                          Téléphone
-                        </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={n.phone}
-                          onChange={u}
-                          placeholder="+33 1 XX XX XX XX"
-                          className="w-full bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl h-12 focus-visible:ring-accent focus-visible:border-accent"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium mb-2 text-heading"
-                      >
-                        Objet
-                      </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        value={n.subject}
-                        onChange={u}
-                        placeholder="Objet de votre demande"
-                        className="w-full bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl h-12 focus-visible:ring-accent focus-visible:border-accent"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium mb-2 text-heading"
-                      >
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={n.message}
-                        onChange={u}
-                        required={!0}
-                        placeholder="Décrivez votre demande..."
-                        className="w-full min-h-32 bg-white border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus-visible:ring-accent focus-visible:border-accent"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      disabled={p}
-                      className="w-full bg-accent text-white font-bold hover:bg-accent/90 hover:scale-[1.02] transition-all duration-300 rounded-xl py-6 flex items-center justify-center gap-2 shadow-lg"
-                    >
-                      {p ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin">
-                            {""}
+                      <div className="p-8 space-y-6">
+                        <div>
+                          <h4 className="font-bold mb-2 text-heading">Adresse</h4>
+                          <div className="flex items-start gap-3">
+                            <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p>{i.address}</p>
+                              <p>{i.city}</p>
+                            </div>
                           </div>
-                          Envoi en cours...
-                        </>
-                      ) : (
-                        <>
-                          Envoyer ma demande<span>→</span>
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                )}
-              </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold mb-2 text-heading">Téléphone</h4>
+                          <div className="flex items-center gap-3">
+                            <Phone className="w-5 h-5 text-accent flex-shrink-0" />
+                            <a
+                              href={`tel:${i.phone}`}
+                              className="hover:text-accent transition-colors"
+                            >
+                              {i.phone}
+                            </a>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold mb-2 text-heading">Email</h4>
+                          <div className="flex items-center gap-3">
+                            <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                            <a
+                              href={`mailto:${i.email}`}
+                              className="hover:text-accent transition-colors"
+                            >
+                              {i.email}
+                            </a>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold mb-2 text-heading">Horaires</h4>
+                          <div className="flex items-center gap-3">
+                            <Clock className="w-5 h-5 text-accent flex-shrink-0" />
+                            <p>{i.hours}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
+          </div>
+        </section>
+        <section className="py-20 md:py-32 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-12 text-center">Nous trouver</h2>
+            <div className="bg-secondary rounded-lg overflow-hidden h-96">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9915256937595!2d2.3073137!3d48.8699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f8f8f8f8f8f%3A0x40b82c3688c9460!2s61%20Rue%20la%20Bo%C3%A9tie%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{
+                  border: 0,
+                }}
+                allowFullScreen={!0}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="py-20 md:py-32 bg-secondary">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-12 text-center">Pourquoi nous rendre visite ?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="text-2xl font-bold mb-4 text-heading">Localisation stratégique</h3>
+                  <p className="text-foreground">
+                    Situé au cœur de Paris, dans le 8e arrondissement, notre bureau est facilement
+                    accessible en transports en commun et en voiture.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="text-2xl font-bold mb-4 text-heading">Équipe disponible</h3>
+                  <p className="text-foreground">
+                    Notre équipe d'experts est disponible pour vous accueillir et répondre à toutes
+                    vos questions lors de rendez-vous.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="text-2xl font-bold mb-4 text-heading">
+                    Environnement professionnel
+                  </h3>
+                  <p className="text-foreground">
+                    Nos bureaux offrent un cadre professionnel et confidentiel pour discuter de vos
+                    projets et enjeux.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section className="py-20 md:py-32 bg-gradient-to-r from-primary to-primary/90 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-6">Prenez rendez-vous avec nos experts</h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Contactez-nous pour fixer un rendez-vous à notre bureau de Paris.
+            </p>
+            <Link href="/contact">
+              <Button className="bg-accent text-white hover:bg-accent/90 px-8 py-6 text-lg">
+                Nous contacter
+              </Button>
+            </Link>
           </div>
         </section>
       </main>
@@ -346,5 +181,4 @@ export function Contact() {
     </div>
   );
 }
-
-export default Contact;
+export default Implantations;
