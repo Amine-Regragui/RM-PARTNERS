@@ -12,7 +12,7 @@ export function Implantations() {
       city: "75008 Paris",
       phone: "+33 6 03 40 68 53",
       email: "a.regragui@rmpartners.fr",
-      hours: "Lun - Ven: 9h - 18h",
+      hours: "Lun - Ven : 8h - 17h30",
       description: "Notre siège social et principal bureau à Paris, au cœur du 8e arrondissement.",
       team: "Équipe complète",
     },
