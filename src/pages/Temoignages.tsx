@@ -78,7 +78,7 @@ export function Temoignages() {
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="text-4xl font-bold mb-6">La confiance de nos clients</h2>
               <p className="text-lg text-foreground leading-relaxed">
-                Depuis plus de 15 ans, RM Partners accompagne des entreprises de tous les secteurs.
+                Depuis plus de 20 ans, RM Partners accompagne des entreprises de tous les secteurs.
                 Nos clients nous font confiance pour notre expertise, notre réactivité et notre
                 engagement envers leur succès.
               </p>
@@ -123,11 +123,11 @@ export function Temoignages() {
             <h2 className="text-4xl font-bold mb-12 text-center">Nos chiffres</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="bg-secondary rounded-lg p-8 text-center">
-                <div className="text-4xl font-bold text-heading mb-2">500+</div>
+                <div className="text-4xl font-bold text-heading mb-2">800+</div>
                 <p className="text-foreground">Clients accompagnés</p>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center">
-                <div className="text-4xl font-bold text-heading mb-2">15+</div>
+                <div className="text-4xl font-bold text-heading mb-2">20+</div>
                 <p className="text-foreground">Années d'expérience</p>
               </div>
               <div className="bg-secondary rounded-lg p-8 text-center">
