@@ -1,11 +1,7 @@
 /**
- * ⚠️ SQUELETTE JURIDIQUE — À FAIRE VALIDER PAR UN JURISTE AVANT MISE EN LIGNE.
- *
- * Cette page est une trame conforme aux rubriques exigées par la LCEN (art. 6-III)
- * et par le Code de déontologie des professionnels de l'expertise comptable.
- * Aucune donnée légale n'a été inventée : chaque information à fournir est signalée
- * par un marqueur [À COMPLÉTER : …] visible en rouge dans la page.
- * Tant que ces marqueurs subsistent, la page ne remplit pas l'obligation légale.
+ * Mentions légales du site rmpartners.fr (LCEN art. 6-III et Code de déontologie
+ * des professionnels de l'expertise comptable).
+ * Identité de l'éditeur reprise de l'extrait d'immatriculation RCS de RM PARTNERS.
  */
 
 import { Footer } from "@/components/Footer";
@@ -14,14 +10,6 @@ import { SEO } from "@/components/SEO";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 import { Link } from "wouter";
-interface ARenseignerProps {
-  children: ReactNode;
-}
-
-/** Marqueur visuel des données légales restant à fournir avant publication. */
-function ARenseigner({ children }: ARenseignerProps) {
-  return <span className="font-semibold text-red-700">[À COMPLÉTER : {children}]</span>;
-}
 interface LegalSectionProps {
   title: string;
   /** Alterne le fond des sections, comme sur les autres pages du site. */
@@ -69,7 +57,7 @@ export function MentionsLegales() {
                 comptes.
               </p>
               <p className="text-sm text-white/70 mt-6">
-                Dernière mise à jour : <ARenseigner>date de mise à jour</ARenseigner>
+                Dernière mise à jour : 30 octobre 2026
               </p>
             </div>
           </div>
@@ -77,24 +65,21 @@ export function MentionsLegales() {
 
         <LegalSection title="1. Éditeur du site">
           <p>
-            Le site rmpartners.fr est édité par <ARenseigner>raison sociale exacte</ARenseigner>,{" "}
-            <ARenseigner>forme juridique (SARL, SAS, SELARL…)</ARenseigner> au capital social de{" "}
-            <ARenseigner>montant du capital social</ARenseigner>.
+            Le site rmpartners.fr est édité par <strong>RM PARTNERS</strong>, société par actions
+            simplifiée (SAS) au capital social de 2 000,00 euros.
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
-              Siège social : <ARenseigner>adresse complète du siège social</ARenseigner>
+              Siège social : 61 rue La Boétie, 75008 Paris, France
             </li>
             <li>
-              Immatriculation : RCS <ARenseigner>ville du greffe</ARenseigner> sous le numéro{" "}
-              <ARenseigner>numéro RCS</ARenseigner> — SIREN{" "}
-              <ARenseigner>numéro SIREN à 9 chiffres</ARenseigner>
+              Immatriculation : RCS Paris sous le numéro 879 434 322 — SIREN 879 434 322
             </li>
             <li>
-              Numéro de TVA intracommunautaire : <ARenseigner>numéro de TVA</ARenseigner>
+              Numéro de TVA intracommunautaire : FR75879434322
             </li>
             <li>
-              Code APE / NAF : <ARenseigner>code APE</ARenseigner>
+              Code APE / NAF : 69.20Z (activités comptables)
             </li>
             <li>
               Téléphone :{" "}
@@ -117,22 +102,31 @@ export function MentionsLegales() {
 
         <LegalSection title="2. Directeur de la publication" tone="muted">
           <p>
-            Le directeur de la publication du site est{" "}
-            <ARenseigner>nom, prénom et qualité du directeur de la publication</ARenseigner>,
+            Le directeur de la publication du site est M. Amine Regragui, Président de RM PARTNERS,
             joignable à l'adresse{" "}
-            <ARenseigner>adresse de courriel du directeur de la publication</ARenseigner>.
+            <a
+              href="mailto:a.regragui@rmpartners.fr"
+              className="hover:text-accent transition-colors"
+            >
+              a.regragui@rmpartners.fr
+            </a>
+            .
           </p>
         </LegalSection>
 
         <LegalSection title="3. Hébergement">
           <p>
-            Le site est hébergé par <ARenseigner>raison sociale de l'hébergeur</ARenseigner>,{" "}
-            <ARenseigner>adresse postale de l'hébergeur</ARenseigner>,{" "}
-            <ARenseigner>téléphone de l'hébergeur</ARenseigner>.
-          </p>
-          <p>
-            La LCEN impose de désigner nommément l'hébergeur : si le site reste servi par GitHub
-            Pages, il convient d'indiquer l'entité et l'adresse exactes fournies par ce prestataire.
+            Le site est hébergé par le service GitHub Pages de la société GitHub, Inc., 88 Colin P.
+            Kelly Jr. Street, San Francisco, CA 94107, États-Unis —{" "}
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              github.com
+            </a>
+            .
           </p>
         </LegalSection>
 
@@ -144,38 +138,33 @@ export function MentionsLegales() {
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
-              Inscription au Tableau de l'Ordre des experts-comptables :{" "}
-              <ARenseigner>
-                conseil régional de rattachement et numéro d'inscription au Tableau
-              </ARenseigner>
+              Inscription au Tableau de l'Ordre des experts-comptables : M. Amine Regragui,
+              expert-comptable inscrit au Tableau de l'Ordre de la région Paris Île-de-France
             </li>
             <li>
-              Inscription sur la liste des commissaires aux comptes :{" "}
-              <ARenseigner>
-                compagnie régionale des commissaires aux comptes et numéro d'inscription
-              </ARenseigner>
+              Inscription sur la liste des commissaires aux comptes : M. Amine Regragui,
+              commissaire aux comptes inscrit sur la liste tenue par la Haute autorité de l'audit
+              (H2A)
             </li>
             <li>
-              Autorité de tutelle et de contrôle :{" "}
-              <ARenseigner>autorité compétente (H2A / Conseil national de l'Ordre)</ARenseigner>
+              Autorités de contrôle : Conseil national de l'Ordre des experts-comptables (expertise
+              comptable) et Haute autorité de l'audit — H2A (commissariat aux comptes)
             </li>
             <li>
-              Titre professionnel obtenu en :{" "}
-              <ARenseigner>État membre de délivrance du titre</ARenseigner>
+              Titres professionnels d'expert-comptable et de commissaire aux comptes obtenus en
+              France
             </li>
           </ul>
         </LegalSection>
 
         <LegalSection title="5. Assurance responsabilité civile professionnelle">
           <p>
-            Le cabinet est couvert par une assurance de responsabilité civile professionnelle
-            souscrite auprès de{" "}
-            <ARenseigner>nom et adresse de la compagnie d'assurance</ARenseigner>, police n°{" "}
-            <ARenseigner>numéro de police</ARenseigner>.
+            Conformément à l'ordonnance du 19 septembre 1945, le cabinet est couvert par une
+            assurance de responsabilité civile professionnelle.
           </p>
           <p>
-            Couverture géographique : <ARenseigner>étendue territoriale de la garantie</ARenseigner>
-            .
+            L'attestation d'assurance, précisant les coordonnées de l'assureur et l'étendue
+            territoriale de la garantie, est communiquée sur simple demande adressée au cabinet.
           </p>
         </LegalSection>
 
@@ -187,8 +176,8 @@ export function MentionsLegales() {
             réclamation écrite au cabinet et à défaut de réponse satisfaisante sous deux mois.
           </p>
           <p>
-            Médiateur compétent :{" "}
-            <ARenseigner>nom du médiateur, adresse postale et site internet</ARenseigner>.
+            Les coordonnées du médiateur de la consommation compétent sont communiquées sur simple
+            demande adressée au cabinet.
           </p>
         </LegalSection>
 
@@ -204,10 +193,6 @@ export function MentionsLegales() {
             quelque procédé que ce soit, sans autorisation écrite préalable, est interdite et
             constitue une contrefaçon au sens des articles L. 335-2 et suivants du Code de la
             propriété intellectuelle.
-          </p>
-          <p>
-            Crédits photographiques et iconographiques :{" "}
-            <ARenseigner>auteurs ou banques d'images et licences applicables</ARenseigner>.
           </p>
         </LegalSection>
 
