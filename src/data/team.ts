@@ -30,7 +30,7 @@ export const team: TeamMember[] = [
     languages: "Français, Anglais, Arabe",
     email: "a.regragui@rmpartners.fr",
     phone: "+33 6 03 40 68 53",
-    bio: "Amine Regragui est un expert-comptable et commissaire aux comptes expérimenté avec plus de 15 ans d'expérience dans le domaine. Fondateur de RM Partners, il a accompagné plus de 500 entreprises dans leur développement.",
+    bio: "Amine Regragui est un expert-comptable et commissaire aux comptes expérimenté avec plus de 20 ans d'expérience dans le domaine. Fondateur de RM Partners, il a accompagné plus de 800 entreprises dans leur développement.",
     specialties: [
       "Expertise comptable",
       "Commissariat aux comptes",
