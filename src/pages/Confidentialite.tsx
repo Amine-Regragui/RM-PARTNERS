@@ -1,11 +1,6 @@
 /**
- * ⚠️ SQUELETTE JURIDIQUE — À FAIRE VALIDER PAR UN JURISTE (ou un DPO) AVANT MISE EN LIGNE.
- *
- * Trame d'information RGPD (art. 13 du règlement 2016/679) couvrant le formulaire
- * de contact du site. Les éléments factuels vérifiables dans le code y figurent
- * (champs du formulaire, envoi via formsubmit.co) ; toute donnée juridique ou
- * organisationnelle restante est signalée par un marqueur [À COMPLÉTER : …].
- * Tant que ces marqueurs subsistent, l'information des personnes est incomplète.
+ * Politique de confidentialité du site rmpartners.fr (information RGPD, art. 13
+ * du règlement 2016/679) couvrant le formulaire de contact (envoi via formsubmit.co).
  */
 
 import { Footer } from "@/components/Footer";
@@ -14,14 +9,7 @@ import { SEO } from "@/components/SEO";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 import { Link } from "wouter";
-interface ARenseignerProps {
-  children: ReactNode;
-}
 
-/** Marqueur visuel des données restant à fournir avant publication. */
-function ARenseigner({ children }: ARenseignerProps) {
-  return <span className="font-semibold text-red-700">[À COMPLÉTER : {children}]</span>;
-}
 interface LegalSectionProps {
   title: string;
   /** Alterne le fond des sections, comme sur les autres pages du site. */
@@ -70,7 +58,7 @@ export function Confidentialite() {
                 communiquées depuis ce site, et comment exercer vos droits.
               </p>
               <p className="text-sm text-white/70 mt-6">
-                Dernière mise à jour : <ARenseigner>date de mise à jour</ARenseigner>
+                Dernière mise à jour : 30 octobre 2026
               </p>
             </div>
           </div>
@@ -78,15 +66,20 @@ export function Confidentialite() {
 
         <LegalSection title="1. Responsable du traitement">
           <p>
-            Le responsable du traitement est <ARenseigner>raison sociale exacte</ARenseigner>, dont
-            le siège social est situé <ARenseigner>adresse complète du siège social</ARenseigner>,
-            immatriculée sous le numéro SIREN <ARenseigner>numéro SIREN</ARenseigner>.
+            Le responsable du traitement est <strong>RM PARTNERS</strong>, société par actions
+            simplifiée au capital de 2 000,00 euros, dont le siège social est situé 61 rue La
+            Boétie, 75008 Paris, immatriculée au RCS de Paris sous le numéro SIREN 879 434 322.
           </p>
           <p>
-            Délégué à la protection des données ou point de contact « données personnelles » :{" "}
-            <ARenseigner>
-              nom et coordonnées du DPO, ou mention « aucun DPO désigné » et interlocuteur référent
-            </ARenseigner>
+            Le cabinet n'a pas désigné de délégué à la protection des données (DPO). Pour toute
+            question relative à vos données personnelles, votre interlocuteur est M. Amine
+            Regragui, Président, joignable à l'adresse{" "}
+            <a
+              href="mailto:a.regragui@rmpartners.fr"
+              className="font-semibold text-primary hover:text-accent transition-colors"
+            >
+              a.regragui@rmpartners.fr
+            </a>
             .
           </p>
         </LegalSection>
@@ -109,12 +102,10 @@ export function Confidentialite() {
             RGPD : merci de ne pas en faire figurer dans le corps du message.
           </p>
           <p>
-            Autres traitements réalisés par le cabinet en dehors du site (dossiers clients, missions
-            comptables, sociales et d'audit) :{" "}
-            <ARenseigner>
-              description des traitements liés aux missions et de leur documentation (registre)
-            </ARenseigner>
-            .
+            Les données traitées dans le cadre des missions confiées au cabinet (missions
+            comptables, sociales et d'audit) ne relèvent pas de la présente politique : elles sont
+            encadrées par la lettre de mission conclue avec chaque client et couvertes par le secret
+            professionnel.
           </p>
         </LegalSection>
 
@@ -130,18 +121,13 @@ export function Confidentialite() {
               les demandes entrantes (art. 6.1.f).
             </li>
             <li>
-              Envoi éventuel d'informations ultérieures :{" "}
-              <ARenseigner>
-                préciser si une prospection est réalisée et sur quelle base (consentement)
-              </ARenseigner>
-              .
+              Prospection : aucune prospection commerciale ni lettre d'information n'est adressée
+              à partir des données transmises via le formulaire.
             </li>
             <li>
-              Obligations légales et professionnelles du cabinet :{" "}
-              <ARenseigner>
-                obligations applicables (LCB-FT, conservation des dossiers de mission…)
-              </ARenseigner>
-              .
+              Obligations légales et professionnelles du cabinet (art. 6.1.c du RGPD) : lutte contre
+              le blanchiment de capitaux et le financement du terrorisme (articles L. 561-1 et
+              suivants du Code monétaire et financier) et conservation des dossiers de mission.
             </li>
           </ul>
         </LegalSection>
@@ -159,18 +145,14 @@ export function Confidentialite() {
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
-              Éditeur du service d'acheminement et localisation de ses serveurs :{" "}
-              <ARenseigner>identité de l'éditeur de FormSubmit et pays d'hébergement</ARenseigner>
+              Service d'acheminement du formulaire : FormSubmit (formsubmit.co), contact :
+              support@formsubmit.co. Ses serveurs pouvant être situés hors de l'Union européenne,
+              vos données sont susceptibles d'y être transférées le temps de leur acheminement.
             </li>
             <li>
-              Encadrement du transfert hors Union européenne le cas échéant :{" "}
-              <ARenseigner>
-                clauses contractuelles types ou autre garantie appropriée (art. 46 du RGPD)
-              </ARenseigner>
-            </li>
-            <li>
-              Hébergeur du site et messagerie du cabinet :{" "}
-              <ARenseigner>identité des prestataires et localisation des données</ARenseigner>
+              Hébergeur du site : GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street,
+              San Francisco, CA 94107, États-Unis, qui peut enregistrer des données techniques de
+              connexion (adresse IP) dans ses journaux.
             </li>
           </ul>
         </LegalSection>
@@ -182,18 +164,15 @@ export function Confidentialite() {
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
-              Demandes de contact sans suite :{" "}
-              <ARenseigner>
-                durée retenue (usuellement 3 ans à compter du dernier contact)
-              </ARenseigner>
+              Demandes de contact sans suite : 3 ans à compter du dernier contact
             </li>
             <li>
-              Demandes converties en mission :{" "}
-              <ARenseigner>durée de conservation des dossiers clients et archives</ARenseigner>
+              Demandes converties en mission : 10 ans à compter de la fin de la mission, au titre des
+              obligations légales et professionnelles du cabinet
             </li>
             <li>
-              Traces techniques éventuelles :{" "}
-              <ARenseigner>durée de conservation des journaux du prestataire</ARenseigner>
+              Traces techniques éventuelles : selon la politique de conservation des journaux du
+              prestataire d'hébergement
             </li>
           </ul>
         </LegalSection>
@@ -202,11 +181,8 @@ export function Confidentialite() {
           <p>
             Le site est servi en HTTPS et les échanges avec le service d'acheminement du formulaire
             sont chiffrés en transit. Le cabinet met en œuvre les mesures techniques et
-            organisationnelles appropriées pour préserver la sécurité des données :{" "}
-            <ARenseigner>
-              mesures effectivement en place (habilitations, sauvegardes, MFA…)
-            </ARenseigner>
-            .
+            organisationnelles appropriées pour préserver la sécurité et la confidentialité des
+            données.
           </p>
           <p>
             L'expert-comptable et le commissaire aux comptes sont en outre tenus au secret
@@ -217,18 +193,18 @@ export function Confidentialite() {
 
         <LegalSection title="7. Cookies et mesure d'audience">
           <p>
-            État actuel du site :{" "}
-            <ARenseigner>confirmer la présence ou l'absence de cookies</ARenseigner>. Seuls des
+            Le site n'utilise aucun outil de mesure d'audience ni aucun cookie publicitaire. Le
+            choix du thème d'affichage (clair ou sombre) est mémorisé localement dans votre
+            navigateur, à des fins strictement fonctionnelles. Seuls des
             cookies strictement nécessaires au fonctionnement du site peuvent être déposés sans
             votre consentement ; tout traceur de mesure d'audience ou de publicité requiert une
             bannière de recueil du consentement.
           </p>
           <p>
-            Outils tiers susceptibles de déposer des traceurs :{" "}
-            <ARenseigner>
-              liste des outils (mesure d'audience, polices distantes, vidéos intégrées…) et finalité
-            </ARenseigner>
-            .
+            Services tiers intégrés au site : les polices de caractères Google Fonts (Google), dont
+            le chargement entraîne la transmission de votre adresse IP à Google, et la carte Google
+            Maps affichée sur les pages Contact et Implantations, susceptible de déposer des
+            traceurs propres à Google.
           </p>
         </LegalSection>
 
@@ -265,7 +241,7 @@ export function Confidentialite() {
             >
               a.regragui@rmpartners.fr
             </a>{" "}
-            ou par courrier à <ARenseigner>adresse postale de traitement des demandes</ARenseigner>,
+            ou par courrier à RM PARTNERS, 61 rue La Boétie, 75008 Paris,
             en joignant tout élément permettant de vous identifier. Une réponse vous sera adressée
             dans un délai d'un mois, prorogeable dans les conditions prévues par le RGPD.
           </p>
