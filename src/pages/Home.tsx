@@ -268,16 +268,16 @@ export function Home() {
               {[
                 {
                   icon: Users,
-                  number: "500+",
+                  number: "800+",
                   label: "Clients accompagnés",
-                  target: 500,
+                  target: 800,
                   suffix: "+",
                 },
                 {
                   icon: Award,
-                  number: "15+",
+                  number: "20+",
                   label: "Années d'expérience",
-                  target: 15,
+                  target: 20,
                   suffix: "+",
                 },
                 {
@@ -312,7 +312,7 @@ export function Home() {
                           }
                         : {})}
                     >
-                      {i.target != null ? "0" + i.suffix : i.number}
+                      {i.number}
                     </div>
                     <p
                       className="text-white/60"
